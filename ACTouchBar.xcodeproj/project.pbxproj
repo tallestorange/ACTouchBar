@@ -19,6 +19,7 @@
 		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
 		D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */; };
+		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 		D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonsBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunc.swift; sourceTree = "<group>"; };
+		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
+				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
@@ -162,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */,
 				3BFB8BD92209FD86005A3CE5 /* Assets.xcassets in Resources */,
 				3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */,
 				D81256B8220A6E1400AE39DA /* results.json in Resources */,
