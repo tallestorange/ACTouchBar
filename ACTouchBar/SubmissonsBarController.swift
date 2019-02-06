@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class SubmissonsBarController: NSObject, NSTouchBarDelegate {
+class SubmissonsBarController: NSObject {
     static let shared = SubmissonsBarController()
 
     var submissionsBar:NSTouchBar!
@@ -38,14 +38,14 @@ class SubmissonsBarController: NSObject, NSTouchBarDelegate {
         let item = NSCustomTouchBarItem(identifier: .controlStripItem)
         let button = NSButton.init(title: "Back", target: self, action: #selector(pushedProblemsButton(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
-        button.bezelColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        button.bezelColor = submissionDB.backColor
         item.view = button
         return item
     }
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
         var submissionitems:[NSCustomTouchBarItem] = []
-        for submission in submissions.reversed()[0..<100]{
+        for submission in submissions.reversed()[0..<150]{
             let identifier = "https://atcoder.jp/contests/" + submission.contest_id + "/submissions/" + String(submission.id)
             
             let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
@@ -76,19 +76,16 @@ class SubmissonsBarController: NSObject, NSTouchBarDelegate {
     
     @IBAction func pushedProblemsButton(sender: NSButton) {
         if sender.identifier == NSUserInterfaceItemIdentifier("Back") {
-            if #available(OSX 10.14, *) {
-                NSTouchBar.minimizeSystemModalTouchBar(self.submissionsBar)
-            } else {
-                NSTouchBar.minimizeSystemModalFunctionBar(self.submissionsBar)
-            }
-            print("!")
+            minimizeSystemModal(touchBar: self.submissionsBar)
         }
         else {
             guard let url = URL(string: sender.identifier!.rawValue) else {return}
             NSWorkspace.shared.open(url)
         }
     }
-    
+}
+
+extension SubmissonsBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         if identifier == .submissionItem {
             return self.item

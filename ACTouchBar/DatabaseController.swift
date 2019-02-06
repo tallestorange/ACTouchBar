@@ -25,6 +25,8 @@ struct Submission: Codable {
 class DatabaseController: NSObject {
     let ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 1.0)
     let WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 1.0)
+    let backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+    
     let baseURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     var userName:String
     
