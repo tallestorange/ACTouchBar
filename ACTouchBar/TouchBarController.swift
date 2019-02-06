@@ -20,14 +20,30 @@ class TouchBarController: NSObject {
     static let shared = TouchBarController()
     
     let SubmissionBar = SubmissonsBarController.shared
+    let identifiers:[NSTouchBarItem.Identifier] = [.controlStripItem]
+    var items:[NSTouchBarItem.Identifier:NSCustomTouchBarItem] = [:]
     var touchBar:NSTouchBar!
     
     private override init() {
         super.init()
         
         self.touchBar = NSTouchBar()
-        self.touchBar.defaultItemIdentifiers = [.controlStripItem]
+        self.touchBar.defaultItemIdentifiers = self.identifiers
+        self.makeItems()
         self.touchBar.delegate = self
+    }
+    
+    func makeItems() {
+        for identifier in self.identifiers {
+            self.items[identifier] = NSCustomTouchBarItem(identifier: identifier)
+            
+            if identifier == .controlStripItem  {
+                let button = NSButton(title: "Submissions", target: self, action: #selector(pushedButton(sender:)))
+                button.bezelColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
+                self.items[identifier]?.view = button
+            }
+
+        }
     }
     
     func setControlStripItem() {
@@ -42,14 +58,7 @@ class TouchBarController: NSObject {
 
 extension TouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        if identifier == .controlStripItem  {
-            let item = NSCustomTouchBarItem(identifier: .controlStripItem)
-            let button = NSButton(title: "Submissions", target: self, action: #selector(pushedButton(sender:)))
-            button.bezelColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
-            item.view = button
-            return item
-        }
-        return nil
+        return self.items[identifier]
     }
     
 }
