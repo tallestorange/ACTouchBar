@@ -15,20 +15,16 @@ extension NSTouchBarItem.Identifier {
 
 class TouchBarController: NSObject, NSTouchBarDelegate {
     static let shared = TouchBarController()
-    var submissionsBar = NSTouchBar()
+    let SubmissionBar = SubmissonsBarController.shared
     
     private override init() {
         super.init()
-        self.submissionsBar.defaultItemIdentifiers = [.submissionItem]
-        self.submissionsBar.delegate = self
     }
     
     func setControlStripItem() {
-        DFRSystemModalShowsCloseBoxWhenFrontMost(true)
-        
+        DFRSystemModalShowsCloseBoxWhenFrontMost(false)
         let item = NSCustomTouchBarItem(identifier: .controlStripItem)
         item.view = NSButton(title: "Submission", target: self, action: #selector(pushedButton(sender:)))
-        
         NSTouchBarItem.addSystemTrayItem(item)
         DFRElementSetControlStripPresenceForIdentifier(.controlStripItem, true)
     }
@@ -39,19 +35,15 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
             item.view = NSButton(title: "Submission", target: self, action: #selector(pushedButton(sender:)))
             return item
         }
-        else if identifier == .submissionItem {
-            let item = SubmissionItemsGenerator(identifier: .submissionItem)
-            return item
-        }
         return nil
     }
     
     @IBAction func pushedButton(sender: NSButton) {
         if #available(OSX 10.14, *) {
-            NSTouchBar.presentSystemModalTouchBar(self.submissionsBar, systemTrayItemIdentifier: .submissionItem)
+            NSTouchBar.presentSystemModalTouchBar(SubmissionBar.submissionsBar, systemTrayItemIdentifier: .controlStripItem)
         }
         else {
-            NSTouchBar.presentSystemModalFunctionBar(self.submissionsBar, systemTrayItemIdentifier: .submissionItem)
+            NSTouchBar.presentSystemModalFunctionBar(SubmissionBar.submissionsBar, systemTrayItemIdentifier: .controlStripItem)
         }
     }
 }
