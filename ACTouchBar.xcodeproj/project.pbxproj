@@ -18,6 +18,7 @@
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
 		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
 		D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */; };
+		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 		D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonsBarController.swift; sourceTree = "<group>"; };
+		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
 				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */,
+				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
 				D81256B7220A6E1400AE39DA /* results.json */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
@@ -178,6 +181,7 @@
 				3BFB8BD72209FD85005A3CE5 /* ACTouchBar.xcdatamodeld in Sources */,
 				3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */,
 				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
+				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */,
 				D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
