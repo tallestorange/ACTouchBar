@@ -33,8 +33,8 @@ struct UserInfo: Codable {
 class DatabaseController: NSObject {
     let ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     let WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
-    let backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.8)
-    let submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.8)
+    let backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.95)
+    let submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
     
     let resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     let infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="

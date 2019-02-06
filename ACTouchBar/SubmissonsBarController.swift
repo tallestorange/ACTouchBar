@@ -39,8 +39,15 @@ class SubmissonsBarController: NSObject {
         let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
         let button = NSButton.init(title: "Back", target: self, action: #selector(pushedProblemsButton(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
-        button.bezelColor = submissionDB.backColor
+        button.bezelColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
         item.view = button
+        return item
+    }
+    
+    func makeDateItem(string: String) -> NSCustomTouchBarItem {
+        let item = NSCustomTouchBarItem(identifier: .statusItem)
+        let txtField = NSTextField.init(labelWithString: string)
+        item.view = txtField
         return item
     }
     
@@ -51,10 +58,7 @@ class SubmissonsBarController: NSObject {
             
             if (dateString != currentDate) {
                 currentDate = dateString
-                let item = NSCustomTouchBarItem(identifier: .statusItem)
-                let txtField = NSTextField.init(labelWithString: dateString)
-                item.view = txtField
-                submissionitems.append(item)
+                submissionitems.append(self.makeDateItem(string: dateString))
             }
 
             let identifier = "https://atcoder.jp/contests/" + submission.contest_id + "/submissions/" + String(submission.id)
@@ -62,18 +66,21 @@ class SubmissonsBarController: NSObject {
             let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
             let button = NSButton.init(title: submission.problem_id, target: self, action: #selector(pushedProblemsButton(sender:)))
             button.identifier = NSUserInterfaceItemIdentifier(identifier)
-
-            if submission.result == "AC" {
-                button.bezelColor = submissionDB.ACColor
-            }
-            else {
-                button.bezelColor = submissionDB.WAColor
-            }
+            button.bezelColor = self.selectColor(result: submission.result)
             
             item.view = button
             submissionitems.append(item)
         }
         return submissionitems
+    }
+    
+    func selectColor(result: String) -> NSColor {
+        if result == "AC" {
+            return submissionDB.ACColor
+        }
+        else {
+            return submissionDB.WAColor
+        }
     }
     
     func epochSecondToString(epochSecond: Int) -> String {
