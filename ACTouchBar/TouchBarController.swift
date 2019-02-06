@@ -54,14 +54,12 @@ extension TouchBarController: NSTouchBarDelegate {
         if identifier == .controlStripItem  {
             let item = NSCustomTouchBarItem(identifier: .controlStripItem)
             let button = NSButton(title: "Submissions", target: self, action: #selector(pushedButton(sender:)))
-            button.bezelColor = self.DBController.submissionColor
             item.view = button
             return item
         }
         if identifier == .statusItem {
             let item = NSCustomTouchBarItem(identifier: .statusItem)
-            let txtField = NSTextField.init(labelWithString: "Accepted: " + String(self.userInfo.accepted_count))
-            txtField.backgroundColor = self.DBController.ACColor
+            let txtField = NSTextField.init(labelWithString: "RatedPointSum: " + String(Int(self.userInfo.rated_point_sum)))
             item.view = txtField
             return item
         }
