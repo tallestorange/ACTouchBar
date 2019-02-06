@@ -47,6 +47,11 @@ class TouchBarController: NSObject, NSTouchBarDelegate {
     }
     
     @IBAction func pushedButton(sender: NSButton) {
-        NSTouchBar.presentSystemModalTouchBar(self.submissionsBar, systemTrayItemIdentifier: .submissionItem)
+        if #available(OSX 10.14, *) {
+            NSTouchBar.presentSystemModalTouchBar(self.submissionsBar, systemTrayItemIdentifier: .submissionItem)
+        }
+        else {
+            NSTouchBar.presentSystemModalFunctionBar(self.submissionsBar, systemTrayItemIdentifier: .submissionItem)
+        }
     }
 }
