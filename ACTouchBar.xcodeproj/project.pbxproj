@@ -20,6 +20,7 @@
 		D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */; };
 		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
+		D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonsBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunc.swift; sourceTree = "<group>"; };
 		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
+		D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
 				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */,
+				D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
 				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
@@ -187,6 +190,7 @@
 				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */,
 				D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */,
+				D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
