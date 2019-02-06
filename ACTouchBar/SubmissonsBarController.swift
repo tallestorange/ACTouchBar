@@ -21,7 +21,7 @@ class SubmissonsBarController: NSObject {
         super.init()
         
         self.submissionsBar = NSTouchBar()
-        self.submissionsBar.defaultItemIdentifiers = [.submissionItem]
+        self.submissionsBar.defaultItemIdentifiers = [.submissionBarExitItem, .submissionBarItem]
         self.submissionsBar.delegate = self
     }
     
@@ -29,14 +29,14 @@ class SubmissonsBarController: NSObject {
         guard let inputData = self.submissionDB.getDataFromFile(filename: "results") else {return}
         guard let submissions = self.submissionDB.loadSubmissionJSON(data: inputData) else {return}
         
-        self.submissionsItems = [self.makeBackButtonItem()] + self.makeSubmissionItems(submissions: submissions)
+        self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
         
-        self.item = NSCustomTouchBarItem(identifier: .submissionItem)
+        self.item = NSCustomTouchBarItem(identifier: .submissionBarItem)
         self.item.view = self.makeScrollView()
     }
     
     func makeBackButtonItem() -> NSCustomTouchBarItem {
-        let item = NSCustomTouchBarItem(identifier: .controlStripItem)
+        let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
         let button = NSButton.init(title: "Back", target: self, action: #selector(pushedProblemsButton(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
         button.bezelColor = submissionDB.backColor
@@ -46,13 +46,8 @@ class SubmissonsBarController: NSObject {
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
         var submissionitems:[NSCustomTouchBarItem] = []
-        for submission in submissions.reversed()[0..<30]{
-            let date = Date(timeIntervalSince1970: TimeInterval(Double(submission.epoch_second)))
-            
-            let dateFormater = DateFormatter()
-            dateFormater.locale = Locale(identifier: "ja_JP")
-            dateFormater.dateFormat = " yyyy/MM/dd "
-            let dateString = dateFormater.string(from: date)
+        for submission in submissions.reversed()[0..<100]{
+            let dateString = self.epochSecondToString(epochSecond: submission.epoch_second)
             
             if (dateString != currentDate) {
                 currentDate = dateString
@@ -67,6 +62,7 @@ class SubmissonsBarController: NSObject {
             let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
             let button = NSButton.init(title: submission.problem_id, target: self, action: #selector(pushedProblemsButton(sender:)))
             button.identifier = NSUserInterfaceItemIdentifier(identifier)
+
             if submission.result == "AC" {
                 button.bezelColor = submissionDB.ACColor
             }
@@ -80,10 +76,20 @@ class SubmissonsBarController: NSObject {
         return submissionitems
     }
     
+    func epochSecondToString(epochSecond: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(epochSecond)))
+        
+        let dateFormater = DateFormatter()
+        dateFormater.locale = Locale(identifier: "ja_JP")
+        dateFormater.dateFormat = " yyyy/MM/dd "
+        let dateString = dateFormater.string(from: date)
+        return dateString
+    }
+    
     func makeScrollView() -> NSScrollView {
         let views = self.submissionsItems.compactMap { $0.view }
         let stackView = NSStackView(views: views)
-        stackView.spacing = 1
+        stackView.spacing = 2
         stackView.orientation = .horizontal
         let scrollView = NSScrollView(frame: CGRect(origin: .zero, size: stackView.fittingSize))
         scrollView.documentView = stackView
@@ -103,7 +109,10 @@ class SubmissonsBarController: NSObject {
 
 extension SubmissonsBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        if identifier == .submissionItem {
+        if identifier == .submissionBarExitItem {
+            return self.makeBackButtonItem()
+        }
+        else if identifier == .submissionBarItem {
             return self.item
         }
         return nil

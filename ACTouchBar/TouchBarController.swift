@@ -12,6 +12,8 @@ extension NSTouchBarItem.Identifier {
     static let controlStripItem = NSTouchBarItem.Identifier("kuwa.controlStrip")
     static let submissionItem = NSTouchBarItem.Identifier("kuwa.submission")
     static let statusItem = NSTouchBarItem.Identifier("kuwa.status")
+    static let submissionBarItem = NSTouchBarItem.Identifier("kuwa.submissionbar")
+    static let submissionBarExitItem = NSTouchBarItem.Identifier("kuwa.submissionExitbar")
 }
 
 class TouchBarController: NSObject {
@@ -26,22 +28,17 @@ class TouchBarController: NSObject {
         super.init()
         
         self.touchBar = NSTouchBar()
+        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
         self.touchBar.defaultItemIdentifiers = [.statusItem, .controlStripItem]
         self.touchBar.delegate = self
         
         guard let inputData = DBController.getDataFromFile(filename: "user_info") else {return}
         guard let userInfo = DBController.loadUserInfoJSON(data: inputData) else {return}
         self.userInfo = userInfo
-        print(userInfo)
     }
     
     func setControlStripItem() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
-        let item = NSCustomTouchBarItem(identifier: .controlStripItem)
-        item.view = NSButton(title: "Submission", target: self, action: #selector(pushedButton(sender:)))
-        NSTouchBarItem.addSystemTrayItem(item)
-        DFRElementSetControlStripPresenceForIdentifier(.controlStripItem, true)
-        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
     
     @IBAction func pushedButton(sender: NSButton) {

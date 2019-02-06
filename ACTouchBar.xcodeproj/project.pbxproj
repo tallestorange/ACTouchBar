@@ -331,7 +331,7 @@
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Z8Y5P8B58S;
+				DEVELOPMENT_TEAM = QHW2DL5SSN;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -358,7 +358,7 @@
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Z8Y5P8B58S;
+				DEVELOPMENT_TEAM = QHW2DL5SSN;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
