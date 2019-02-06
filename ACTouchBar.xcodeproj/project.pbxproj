@@ -17,6 +17,7 @@
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
 		3BFB8BEC2209FE77005A3CE5 /* SubmissionItemsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BEB2209FE77005A3CE5 /* SubmissionItemsGenerator.swift */; };
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
+		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		3BFB8BEB2209FE77005A3CE5 /* SubmissionItemsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionItemsGenerator.swift; sourceTree = "<group>"; };
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
+		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
 				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
 				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
+				D81256B7220A6E1400AE39DA /* results.json */,
 				3BFB8BEB2209FE77005A3CE5 /* SubmissionItemsGenerator.swift */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
@@ -125,6 +128,11 @@
 					3BFB8BCD2209FD85005A3CE5 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -153,6 +161,7 @@
 			files = (
 				3BFB8BD92209FD86005A3CE5 /* Assets.xcassets in Resources */,
 				3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */,
+				D81256B8220A6E1400AE39DA /* results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -293,7 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -307,14 +316,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QHW2DL5SSN;
+				DEVELOPMENT_TEAM = Z8Y5P8B58S;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = kuwa.ACTouchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ACTouchBar/ACTouchBar-Bridging-Header.h";
@@ -332,14 +343,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QHW2DL5SSN;
+				DEVELOPMENT_TEAM = Z8Y5P8B58S;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = kuwa.ACTouchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ACTouchBar/ACTouchBar-Bridging-Header.h";

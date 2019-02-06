@@ -32,15 +32,32 @@ class DatabaseController: NSObject {
         self.userName = userName
     }
     
-    func getRequest() throws -> Data? {
+    func getAPIRequest() -> Data? {
         let urlString = self.baseURL + self.userName
         let url = URL(string: urlString)!
-        return try Data(contentsOf: url)
+        
+        do {
+            return try Data(contentsOf: url)
+        }
+        catch {
+            return nil
+        }
     }
     
-    func loadJSON() -> [Submission]? {
-        guard let data = try? getRequest() else {return nil}
-        guard let submissions = try? JSONDecoder().decode([Submission].self, from: data!) else {return nil}
+    func getDataFromFile(filename: String) -> Data? {
+        let path = Bundle.main.path(forResource: filename, ofType: "json")!
+        
+        do {
+            let fileData = try Data(contentsOf: URL(fileURLWithPath: path))
+            return fileData
+        }
+        catch {
+            return nil
+        }
+    }
+    
+    func loadJSON(data: Data) -> [Submission]? {
+        guard let submissions = try? JSONDecoder().decode([Submission].self, from: data) else {return nil}
         return submissions
     }
 }

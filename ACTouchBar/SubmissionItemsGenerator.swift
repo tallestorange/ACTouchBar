@@ -10,13 +10,16 @@ import Cocoa
 
 class SubmissionItemsGenerator: NSCustomTouchBarItem {
     let submissionDB = DatabaseController(userName: "tallestorange")
-    var submissions:[Submission] = []
-    var submissionItems:[NSCustomTouchBarItem] = []
+    var submissions:[Submission]!
+    var submissionItems:[NSCustomTouchBarItem]!
     
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         
-        self.submissions = self.submissionDB.loadJSON()!
+//        guard let inputData = self.submissionDB.getAPIRequest() else {return}
+        guard let inputData = self.submissionDB.getDataFromFile(filename: "results") else {return}
+        
+        self.submissions = self.submissionDB.loadJSON(data: inputData)
         self.submissionItems = self.makeSubmissionItems()
         self.view = self.makeScrollView()
     }
