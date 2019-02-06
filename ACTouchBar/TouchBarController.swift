@@ -19,26 +19,20 @@ extension NSTouchBarItem.Identifier {
 class TouchBarController: NSObject {
     static let shared = TouchBarController()
     
-    let DBController = DatabaseController(userName: "tallestorange")
     let SubmissionBar = SubmissonsBarController.shared
     var touchBar:NSTouchBar!
-    var userInfo:UserInfo!
     
     private override init() {
         super.init()
         
         self.touchBar = NSTouchBar()
-        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
-        self.touchBar.defaultItemIdentifiers = [.statusItem, .controlStripItem]
+        self.touchBar.defaultItemIdentifiers = [.controlStripItem]
         self.touchBar.delegate = self
-        
-        guard let inputData = DBController.getDataFromFile(filename: "user_info") else {return}
-        guard let userInfo = DBController.loadUserInfoJSON(data: inputData) else {return}
-        self.userInfo = userInfo
     }
     
     func setControlStripItem() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
+        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
     
     @IBAction func pushedButton(sender: NSButton) {
@@ -51,13 +45,8 @@ extension TouchBarController: NSTouchBarDelegate {
         if identifier == .controlStripItem  {
             let item = NSCustomTouchBarItem(identifier: .controlStripItem)
             let button = NSButton(title: "Submissions", target: self, action: #selector(pushedButton(sender:)))
+            button.bezelColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
             item.view = button
-            return item
-        }
-        if identifier == .statusItem {
-            let item = NSCustomTouchBarItem(identifier: .statusItem)
-            let txtField = NSTextField.init(labelWithString: "RatedPointSum: " + String(Int(self.userInfo.rated_point_sum)))
-            item.view = txtField
             return item
         }
         return nil
