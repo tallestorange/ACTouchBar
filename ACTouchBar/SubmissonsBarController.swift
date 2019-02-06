@@ -15,6 +15,7 @@ class SubmissonsBarController: NSObject {
     var submissionsItems:[NSCustomTouchBarItem]!
     let submissionDB = DatabaseController(userName: "tallestorange")
     var item:NSCustomTouchBarItem!
+    var currentDate:String?
     
     override init(){
         super.init()
@@ -26,7 +27,7 @@ class SubmissonsBarController: NSObject {
     
     func prepareDatas() {
         guard let inputData = self.submissionDB.getDataFromFile(filename: "results") else {return}
-        guard let submissions = self.submissionDB.loadJSON(data: inputData) else {return}
+        guard let submissions = self.submissionDB.loadSubmissionJSON(data: inputData) else {return}
         
         self.submissionsItems = [self.makeBackButtonItem()] + self.makeSubmissionItems(submissions: submissions)
         
@@ -45,7 +46,22 @@ class SubmissonsBarController: NSObject {
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
         var submissionitems:[NSCustomTouchBarItem] = []
-        for submission in submissions.reversed()[0..<150]{
+        for submission in submissions.reversed()[0..<30]{
+            let date = Date(timeIntervalSince1970: TimeInterval(Double(submission.epoch_second)))
+            
+            let dateFormater = DateFormatter()
+            dateFormater.locale = Locale(identifier: "ja_JP")
+            dateFormater.dateFormat = " yyyy/MM/dd "
+            let dateString = dateFormater.string(from: date)
+            
+            if (dateString != currentDate) {
+                currentDate = dateString
+                let item = NSCustomTouchBarItem(identifier: .statusItem)
+                let txtField = NSTextField.init(labelWithString: dateString)
+                item.view = txtField
+                submissionitems.append(item)
+            }
+
             let identifier = "https://atcoder.jp/contests/" + submission.contest_id + "/submissions/" + String(submission.id)
             
             let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))

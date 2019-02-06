@@ -22,20 +22,30 @@ struct Submission: Codable {
     let length:Int
 }
 
+struct UserInfo: Codable {
+    let accepted_count_rank:Int
+    let rated_point_sum_rank:Int
+    let rated_point_sum:Float
+    let user_id:String
+    let accepted_count:Int
+}
+
 class DatabaseController: NSObject {
-    let ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 1.0)
-    let WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 1.0)
-    let backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+    let ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
+    let WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
+    let backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.8)
+    let submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.8)
     
-    let baseURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
+    let resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
+    let infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
+    
     var userName:String
     
     init(userName: String) {
         self.userName = userName
     }
     
-    func getAPIRequest() -> Data? {
-        let urlString = self.baseURL + self.userName
+    func getAPIRequest(urlString: String) -> Data? {
         let url = URL(string: urlString)!
         
         do {
@@ -58,8 +68,13 @@ class DatabaseController: NSObject {
         }
     }
     
-    func loadJSON(data: Data) -> [Submission]? {
+    func loadSubmissionJSON(data: Data) -> [Submission]? {
         guard let submissions = try? JSONDecoder().decode([Submission].self, from: data) else {return nil}
         return submissions
+    }
+    
+    func loadUserInfoJSON(data: Data) -> UserInfo? {
+        guard let userInfo = try? JSONDecoder().decode(UserInfo.self, from: data) else {return nil}
+        return userInfo
     }
 }

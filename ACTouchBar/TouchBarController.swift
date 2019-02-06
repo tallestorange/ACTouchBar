@@ -17,15 +17,22 @@ extension NSTouchBarItem.Identifier {
 class TouchBarController: NSObject {
     static let shared = TouchBarController()
     
+    let DBController = DatabaseController(userName: "tallestorange")
     let SubmissionBar = SubmissonsBarController.shared
     var touchBar:NSTouchBar!
+    var userInfo:UserInfo!
     
     private override init() {
         super.init()
         
         self.touchBar = NSTouchBar()
-        self.touchBar.defaultItemIdentifiers = [.controlStripItem, .statusItem]
+        self.touchBar.defaultItemIdentifiers = [.statusItem, .controlStripItem]
         self.touchBar.delegate = self
+        
+        guard let inputData = DBController.getDataFromFile(filename: "user_info") else {return}
+        guard let userInfo = DBController.loadUserInfoJSON(data: inputData) else {return}
+        self.userInfo = userInfo
+        print(userInfo)
     }
     
     func setControlStripItem() {
@@ -38,7 +45,6 @@ class TouchBarController: NSObject {
     }
     
     @IBAction func pushedButton(sender: NSButton) {
-        presentSystemModal(touchBar: NSTouchBar(), identifier: .submissionItem, placement: 1)
         presentSystemModal(touchBar: SubmissionBar.submissionsBar, identifier: .submissionItem, placement: 1)
     }
 }
@@ -47,15 +53,20 @@ extension TouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         if identifier == .controlStripItem  {
             let item = NSCustomTouchBarItem(identifier: .controlStripItem)
-            item.view = NSButton(title: "Submission", target: self, action: #selector(pushedButton(sender:)))
+            let button = NSButton(title: "Submissions", target: self, action: #selector(pushedButton(sender:)))
+            button.bezelColor = self.DBController.submissionColor
+            item.view = button
             return item
         }
         if identifier == .statusItem {
             let item = NSCustomTouchBarItem(identifier: .statusItem)
-            item.view = NSButton(title: "hoge", target: self, action: nil)
+            let txtField = NSTextField.init(labelWithString: "Accepted: " + String(self.userInfo.accepted_count))
+            txtField.backgroundColor = self.DBController.ACColor
+            item.view = txtField
             return item
         }
         return nil
     }
     
 }
+
