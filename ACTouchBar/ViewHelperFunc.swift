@@ -37,10 +37,7 @@ func makeTextItem(string: String, font: NSFont) -> NSCustomTouchBarItem {
     let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: string))
     let textField = NSTextField.init(labelWithString: string)
     
-    textField.font = font
-//    textField.backgroundColor = DatabaseController.shared.ACColor
-//    textField.drawsBackground = true
-    
+    textField.font = font    
     item.view = textField
     return item
 }

@@ -37,7 +37,7 @@ class SubmissonBarController: NSObject {
     
     func makeSubmissionButton() -> NSButton {
         let button = NSButton(title: "Submissions", target: self, action: #selector(pushedSubmissionButton(sender:)))
-        button.bezelColor = DatabaseController.shared.submissionColor
+        button.bezelColor = GlobalVars.submissionColor
         return button
     }
     
@@ -55,7 +55,7 @@ class SubmissonBarController: NSObject {
         let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
         let button = NSButton.init(title: "Back", target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
-        button.bezelColor = DatabaseController.shared.submissionColor
+        button.bezelColor = GlobalVars.submissionColor
         item.view = button
         return item
     }
@@ -87,10 +87,10 @@ class SubmissonBarController: NSObject {
     
     func selectColor(result: String) -> NSColor {
         if result == "AC" {
-            return DatabaseController.shared.ACColor
+            return GlobalVars.ACColor
         }
         else {
-            return DatabaseController.shared.WAColor
+            return GlobalVars.WAColor
         }
     }
     
