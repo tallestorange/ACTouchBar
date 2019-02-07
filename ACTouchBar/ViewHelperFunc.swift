@@ -6,8 +6,6 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-import Foundation
-
 func makeStackView(items: [NSCustomTouchBarItem]) -> NSStackView {
     let views = items.compactMap { $0.view }
     let stackView = NSStackView(views: views)
@@ -33,4 +31,16 @@ func dateToString(date: Date) -> String {
     dateFormater.dateFormat = " yyyy/MM/dd "
     let dateString = dateFormater.string(from: date)
     return dateString
+}
+
+func makeTextItem(string: String, font: NSFont) -> NSCustomTouchBarItem {
+    let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: string))
+    let textField = NSTextField.init(labelWithString: string)
+    
+    textField.font = font
+//    textField.backgroundColor = DatabaseController.shared.ACColor
+//    textField.drawsBackground = true
+    
+    item.view = textField
+    return item
 }

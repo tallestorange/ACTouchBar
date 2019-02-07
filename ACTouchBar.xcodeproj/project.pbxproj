@@ -82,7 +82,6 @@
 				D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */,
 				D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */,
 				D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */,
-				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
 				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
@@ -91,6 +90,7 @@
 				3BFB8BDD2209FD86005A3CE5 /* Info.plist */,
 				3BFB8BDE2209FD86005A3CE5 /* ACTouchBar.entitlements */,
 				3BFB8BD52209FD85005A3CE5 /* ACTouchBar.xcdatamodeld */,
+				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				3BFB8BE82209FE24005A3CE5 /* ACTouchBar-Bridging-Header.h */,
 			);
 			path = ACTouchBar;
