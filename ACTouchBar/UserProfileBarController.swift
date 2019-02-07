@@ -23,8 +23,6 @@ class UserProfileBarController: NSCustomTouchBarItem {
     
     func makeProfileImageItem(image: NSImage?) -> NSCustomTouchBarItem {
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: "profilePicture"))
-//        guard let jpegData = self.loadJpeg() else {return nil}
-//        guard let image = NSImage(data: jpegData) else {return nil}
         guard let targetImage = image else {return item}
         targetImage.size = NSSize(width: 44, height: 44)
         let imageView = NSImageView(image: targetImage)

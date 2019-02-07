@@ -17,15 +17,11 @@
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
 		3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */; };
-		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
 		D81256BA220A7E4D00AE39DA /* SubmissonDetailsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */; };
-		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
 		D8CE3C39220AD11700070E85 /* SubmissionStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */; };
 		D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */; };
 		D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */; };
-		D8CE3C41220BF9B700070E85 /* squada-one-v7-latin-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */; };
-		D8CE3C43220C10E000070E85 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C42220C10E000070E85 /* icon.jpg */; };
 		D8CE3C45220C11ED00070E85 /* UserProfileBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,15 +42,11 @@
 		3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageParser.swift; sourceTree = "<group>"; };
 		7C12FD2AF67A0C9E4203D29B /* Pods-ACTouchBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.debug.xcconfig"; path = "Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.debug.xcconfig"; sourceTree = "<group>"; };
 		C5BFDB5A7C2090A9D72FB31F /* Pods_ACTouchBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACTouchBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
 		D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonDetailsBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunction.swift; sourceTree = "<group>"; };
-		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarController.swift; sourceTree = "<group>"; };
 		D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureDefinition.swift; sourceTree = "<group>"; };
-		D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "squada-one-v7-latin-regular.ttf"; sourceTree = "<group>"; };
-		D8CE3C42220C10E000070E85 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,10 +94,6 @@
 				D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */,
 				D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */,
-				D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */,
-				D8CE3C42220C10E000070E85 /* icon.jpg */,
-				D8CE3C36220AB4CD00070E85 /* user_info.json */,
-				D81256B7220A6E1400AE39DA /* results.json */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
 				3BFB8BDD2209FD86005A3CE5 /* Info.plist */,
@@ -201,12 +189,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8CE3C41220BF9B700070E85 /* squada-one-v7-latin-regular.ttf in Resources */,
-				D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */,
 				3BFB8BD92209FD86005A3CE5 /* Assets.xcassets in Resources */,
-				D8CE3C43220C10E000070E85 /* icon.jpg in Resources */,
 				3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */,
-				D81256B8220A6E1400AE39DA /* results.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

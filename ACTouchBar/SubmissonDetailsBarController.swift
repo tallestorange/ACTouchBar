@@ -25,7 +25,7 @@ class SubmissonDetailsBarController: NSObject {
     func prepareItems() {
         self.submissionsItems = []
 
-        guard let inputData = DatabaseController.shared.getDataFromFile(filename: "results") else {return}
+        guard let inputData = getRequest(urlString: GlobalVars.resultURL + DatabaseController.shared.userName) else {return}
         guard let submissions = DatabaseController.shared.loadSubmissionJSON(data: inputData) else {return}
         
         self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
