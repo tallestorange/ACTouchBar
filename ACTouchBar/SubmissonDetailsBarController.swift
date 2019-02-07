@@ -6,8 +6,6 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-import Cocoa
-
 class SubmissonDetailsBarController: NSObject {
     static let shared = SubmissonDetailsBarController()
 
