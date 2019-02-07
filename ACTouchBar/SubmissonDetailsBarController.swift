@@ -34,7 +34,7 @@ class SubmissonDetailsBarController: NSObject {
     }
     
     func makeSubmissionButton() -> NSButton {
-        let button = NSButton(title: "Submissions", target: self, action: #selector(pushedSubmissionButton(sender:)))
+        let button = NSButton(title: "Recent " + String(GlobalVars.recentSubmitsQuantity) + " Submissions", target: self, action: #selector(pushedSubmissionButton(sender:)))
         button.bezelColor = GlobalVars.submissionColor
         return button
     }
@@ -67,7 +67,7 @@ class SubmissonDetailsBarController: NSObject {
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
         var submissionItems:[NSCustomTouchBarItem] = []
-        for submission in submissions.reversed()[0..<100]{
+        for submission in submissions.reversed()[0..<GlobalVars.recentSubmitsQuantity]{
             
             let date = epochSecondToDate(epochSecond: submission.epoch_second)
             let dateString = dateToString(date: date)
