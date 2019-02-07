@@ -6,7 +6,7 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-struct GlobalVars {
+struct Constants {
     static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
     static var submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
@@ -18,6 +18,17 @@ struct GlobalVars {
     static var boldFont = NSFont.boldSystemFont(ofSize: 21)
     
     static var recentSubmitsQuantity = 50
+    static var submissionButtonTitle = "Recent " + String(Constants.recentSubmitsQuantity) + " Submissions"
+    static var backButtonTitle = "Back"
+    
+    static var grayColor = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
+    static var brownColor = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)
+    static var greenColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+    static var cyanColor = NSColor.init(red: 0/255, green: 192/255, blue: 192/255, alpha: 1.00)
+    static var blueColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 1.00)
+    static var yellowColor = NSColor.init(red: 192/255, green: 192/255, blue: 0/255, alpha: 1.00)
+    static var orangeColor = NSColor.init(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.00)
+    static var redColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.00)
 }
 
 struct UserProfile {
@@ -35,28 +46,28 @@ struct UserProfile {
     mutating func setColor() {
         if let rate = self.current_rating {
             if (1 <= rate && rate < 400) {
-                self.current_color = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
+                self.current_color = Constants.grayColor
             }
             else if (400 <= rate && rate < 800) {
-                self.current_color = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)
+                self.current_color = Constants.brownColor
             }
             else if (800 <= rate && rate < 1200) {
-                self.current_color = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+                self.current_color = Constants.greenColor
             }
             else if (1200 <= rate && rate < 1600) {
-                self.current_color = NSColor.init(red: 0/255, green: 192/255, blue: 192/255, alpha: 1.00)
+                self.current_color = Constants.cyanColor
             }
             else if (1600 <= rate && rate < 2000) {
-                self.current_color = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 1.00)
+                self.current_color = Constants.blueColor
             }
             else if (2000 <= rate && rate < 2400) {
-                self.current_color = NSColor.init(red: 192/255, green: 192/255, blue: 0/255, alpha: 1.00)
+                self.current_color = Constants.yellowColor
             }
             else if (2400 <= rate && rate < 2800) {
-                self.current_color = NSColor.init(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.00)
+                self.current_color = Constants.orangeColor
             }
             else {
-                self.current_color = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.00)
+                self.current_color = Constants.redColor
             }
         }
     }
