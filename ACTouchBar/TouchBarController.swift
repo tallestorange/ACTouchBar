@@ -6,8 +6,6 @@
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-import Cocoa
-
 extension NSTouchBarItem.Identifier {
     static let controlStripItem = NSTouchBarItem.Identifier("kuwa.controlStrip")
     static let submissionItem = NSTouchBarItem.Identifier("kuwa.submission")

@@ -22,6 +22,48 @@ struct GlobalVars {
     static var rateFont = NSFont.init(name: "SquadaOne-Regular", size: 28)!
 }
 
+struct UserProfile {
+    var country:String? = nil
+    var birth_year:Int? = nil
+    var twitter_id:String? = nil
+    var affiliation:String? = nil
+    var ranking:String? = nil
+    var current_rating:Int? = nil
+    var highest_rating:Int? = nil
+    var number_of_times_implemented:Int? = nil
+    var current_color:NSColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+    var image:NSImage? = nil
+    
+    mutating func setColor() {
+        if let rate = self.current_rating {
+            if (1 <= rate && rate < 400) {
+                self.current_color = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
+            }
+            else if (400 <= rate && rate < 800) {
+                self.current_color = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)
+            }
+            else if (800 <= rate && rate < 1200) {
+                self.current_color = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+            }
+            else if (1200 <= rate && rate < 1600) {
+                self.current_color = NSColor.init(red: 0/255, green: 192/255, blue: 192/255, alpha: 1.00)
+            }
+            else if (1600 <= rate && rate < 2000) {
+                self.current_color = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 1.00)
+            }
+            else if (2000 <= rate && rate < 2400) {
+                self.current_color = NSColor.init(red: 192/255, green: 192/255, blue: 0/255, alpha: 1.00)
+            }
+            else if (2400 <= rate && rate < 2800) {
+                self.current_color = NSColor.init(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.00)
+            }
+            else {
+                self.current_color = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.00)
+            }
+        }
+    }
+}
+
 struct Submission: Codable {
     let execution_time:Int?
     let point:Float

@@ -6,9 +6,6 @@
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-import Cocoa
-import Foundation
-
 class DatabaseController: NSObject {
     static let shared = DatabaseController()
     
@@ -20,17 +17,6 @@ class DatabaseController: NSObject {
     
     func setUserName(userName: String) {
         self.userName = userName
-    }
-    
-    func getAPIRequest(urlString: String) -> Data? {
-        let url = URL(string: urlString)!
-        
-        do {
-            return try Data(contentsOf: url)
-        }
-        catch {
-            return nil
-        }
     }
     
     func getDataFromFile(filename: String) -> Data? {

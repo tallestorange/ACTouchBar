@@ -6,26 +6,28 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-import Foundation
-
 class UserProfileBarController: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         
-        guard let profileImageItem = self.makeProfileImageItem() else {return}
+        let pageParser = PageParser()
+        let userProfile = pageParser.getUserProfile(userid: DatabaseController.shared.userName)!
+        
+        let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
         let userNameItem = makeTextItem(string: DatabaseController.shared.userName + "   ", font: GlobalVars.boldFont, color: nil)
         let rateInfoItem = makeTextItem(string: "Rating: ", font: GlobalVars.regularFont, color: nil)
-        let rateValueItem = makeTextItem(string: String(1136) + " ", font: GlobalVars.rateFont, color: GlobalVars.rateGreenColor)
+        let rateValueItem = makeTextItem(string: String(userProfile.current_rating!) + " ", font: GlobalVars.boldFont, color: userProfile.current_color)
         
         self.view = makeStackView(items: [profileImageItem, userNameItem, rateInfoItem, rateValueItem])
     }
     
-    func makeProfileImageItem() -> NSCustomTouchBarItem? {
+    func makeProfileImageItem(image: NSImage?) -> NSCustomTouchBarItem {
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: "profilePicture"))
-        guard let jpegData = self.loadJpeg() else {return nil}
-        guard let image = NSImage(data: jpegData) else {return nil}
-        image.size = NSSize(width: 44, height: 44)
-        let imageView = NSImageView(image: image)
+//        guard let jpegData = self.loadJpeg() else {return nil}
+//        guard let image = NSImage(data: jpegData) else {return nil}
+        guard let targetImage = image else {return item}
+        targetImage.size = NSSize(width: 44, height: 44)
+        let imageView = NSImageView(image: targetImage)
         imageView.sizeToFit()
         item.view = imageView
         return item
