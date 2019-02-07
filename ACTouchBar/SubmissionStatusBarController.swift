@@ -1,12 +1,12 @@
 //
-//  UserStatusBarController.swift
+//  SubmissionStatusBarController.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/06.
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-class UserStatusBarController: NSCustomTouchBarItem {
+class SubmissionStatusBarController: NSCustomTouchBarItem {
     var statusItems:[NSCustomTouchBarItem] = []
     
     override init(identifier: NSTouchBarItem.Identifier) {
@@ -19,10 +19,10 @@ class UserStatusBarController: NSCustomTouchBarItem {
         guard let inputData = DatabaseController.shared.getDataFromFile(filename: "user_info") else {return}
         guard let userInfo = DatabaseController.shared.loadUserInfoJSON(data: inputData) else {return}
         
-        self.statusItems.append(makeTextItem(string: "Accepted:", font: GlobalVars.regularFont))
-        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: GlobalVars.boldFont))
-        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: GlobalVars.regularFont))
-        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: GlobalVars.boldFont))
+        self.statusItems.append(makeTextItem(string: "Accepted:", font: GlobalVars.regularFont, color: nil))
+        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: GlobalVars.boldFont, color: nil))
+        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: GlobalVars.regularFont, color: nil))
+        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: GlobalVars.boldFont, color: nil))
         self.statusItems.append(makeDetailButton())
         
         let item = makeStackView(items: self.statusItems)

@@ -1,5 +1,5 @@
 //
-//  ViewHelperFunc.swift
+//  ViewHelperFunction.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/07.
@@ -33,11 +33,16 @@ func dateToString(date: Date) -> String {
     return dateString
 }
 
-func makeTextItem(string: String, font: NSFont) -> NSCustomTouchBarItem {
+func makeTextItem(string: String, font: NSFont, color: NSColor?) -> NSCustomTouchBarItem {
     let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: string))
     let textField = NSTextField.init(labelWithString: string)
     
     textField.font = font    
+    if let textColor = color {
+        textField.textColor = textColor
+    }
+    
     item.view = textField
+    
     return item
 }
