@@ -6,8 +6,6 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-import Foundation
-
 func presentSystemModal(touchBar: NSTouchBar, identifier: NSTouchBarItem.Identifier, placement: Int64?) {
     if #available(OSX 10.14, *) {
         if let place = placement {

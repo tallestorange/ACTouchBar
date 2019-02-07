@@ -19,7 +19,7 @@ extension NSTouchBarItem.Identifier {
 class TouchBarController: NSObject {
     static let shared = TouchBarController()
     
-    let identifiers:[NSTouchBarItem.Identifier] = [.statusItem, .controlStripItem]
+    let identifiers:[NSTouchBarItem.Identifier] = [.statusItem, .flexibleSpace, .controlStripItem]
     var items:[NSTouchBarItem.Identifier:NSCustomTouchBarItem] = [:]
     var touchBar:NSTouchBar!
     
