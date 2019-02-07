@@ -16,10 +16,11 @@
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
 		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
-		D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */; };
+		D81256BA220A7E4D00AE39DA /* SubmissonBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */; };
 		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
 		D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */; };
+		D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,10 +37,11 @@
 		3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
-		D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonsBarController.swift; sourceTree = "<group>"; };
+		D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunc.swift; sourceTree = "<group>"; };
 		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusBarController.swift; sourceTree = "<group>"; };
+		D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +79,10 @@
 				3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */,
 				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
 				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
-				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
-				D81256B9220A7E4D00AE39DA /* SubmissonsBarController.swift */,
+				D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */,
 				D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */,
+				D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */,
+				3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
 				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
@@ -185,7 +188,8 @@
 				3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */,
 				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */,
-				D81256BA220A7E4D00AE39DA /* SubmissonsBarController.swift in Sources */,
+				D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */,
+				D81256BA220A7E4D00AE39DA /* SubmissonBarController.swift in Sources */,
 				D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +331,7 @@
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QHW2DL5SSN;
+				DEVELOPMENT_TEAM = Z8Y5P8B58S;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,7 +358,7 @@
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = QHW2DL5SSN;
+				DEVELOPMENT_TEAM = Z8Y5P8B58S;
 				INFOPLIST_FILE = ACTouchBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
