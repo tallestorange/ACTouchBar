@@ -16,15 +16,14 @@ class SubmissionStatusBarController: NSCustomTouchBarItem {
     
     func prepareItems() {
         self.statusItems = []
-//        guard let inputData = DatabaseController.shared.getDataFromFile(filename: "user_info") else {return}
         
-        guard let inputData = getRequest(urlString: GlobalVars.infoURL + DatabaseController.shared.userName) else {return}
+        guard let inputData = getRequest(urlString: Constants.infoURL + DatabaseController.shared.userName) else {return}
         guard let userInfo = DatabaseController.shared.loadUserInfoJSON(data: inputData) else {return}
         
-        self.statusItems.append(makeTextItem(string: "Accepted:", font: GlobalVars.regularFont, color: nil))
-        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: GlobalVars.boldFont, color: nil))
-        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: GlobalVars.regularFont, color: nil))
-        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: GlobalVars.boldFont, color: nil))
+        self.statusItems.append(makeTextItem(string: "Accepted:", font: Constants.regularFont, color: nil))
+        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: Constants.boldFont, color: nil))
+        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: Constants.regularFont, color: nil))
+        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: Constants.boldFont, color: nil))
         self.statusItems.append(makeDetailButton())
         
         let item = makeStackView(items: self.statusItems)

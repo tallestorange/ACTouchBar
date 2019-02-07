@@ -25,7 +25,7 @@ class SubmissonDetailsBarController: NSObject {
     func prepareItems() {
         self.submissionsItems = []
 
-        guard let inputData = getRequest(urlString: GlobalVars.resultURL + DatabaseController.shared.userName) else {return}
+        guard let inputData = getRequest(urlString: Constants.resultURL + DatabaseController.shared.userName) else {return}
         guard let submissions = DatabaseController.shared.loadSubmissionJSON(data: inputData) else {return}
         
         self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
@@ -34,8 +34,8 @@ class SubmissonDetailsBarController: NSObject {
     }
     
     func makeSubmissionButton() -> NSButton {
-        let button = NSButton(title: "Recent " + String(GlobalVars.recentSubmitsQuantity) + " Submissions", target: self, action: #selector(pushedSubmissionButton(sender:)))
-        button.bezelColor = GlobalVars.submissionColor
+        let button = NSButton(title: Constants.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
+        button.bezelColor = Constants.submissionColor
         return button
     }
     
@@ -51,9 +51,9 @@ class SubmissonDetailsBarController: NSObject {
     
     func makeBackButtonItem() -> NSCustomTouchBarItem {
         let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
-        let button = NSButton.init(title: "Back", target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
+        let button = NSButton.init(title: Constants.backButtonTitle, target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
-        button.bezelColor = GlobalVars.submissionColor
+        button.bezelColor = Constants.submissionColor
         item.view = button
         return item
     }
@@ -67,7 +67,7 @@ class SubmissonDetailsBarController: NSObject {
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
         var submissionItems:[NSCustomTouchBarItem] = []
-        for submission in submissions.reversed()[0..<GlobalVars.recentSubmitsQuantity]{
+        for submission in submissions.reversed()[0..<Constants.recentSubmitsQuantity]{
             
             let date = epochSecondToDate(epochSecond: submission.epoch_second)
             let dateString = dateToString(date: date)
@@ -85,10 +85,10 @@ class SubmissonDetailsBarController: NSObject {
     
     func selectColor(result: String) -> NSColor {
         if result == "AC" {
-            return GlobalVars.ACColor
+            return Constants.ACColor
         }
         else {
-            return GlobalVars.WAColor
+            return Constants.WAColor
         }
     }
     
