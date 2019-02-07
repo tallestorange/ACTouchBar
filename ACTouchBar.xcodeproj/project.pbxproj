@@ -86,11 +86,11 @@
 			children = (
 				3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */,
 				D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */,
+				3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */,
 				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
 				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
 				D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */,
 				D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */,
-				3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */,
 				D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */,
 				D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */,
