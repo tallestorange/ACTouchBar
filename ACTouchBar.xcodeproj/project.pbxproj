@@ -21,6 +21,7 @@
 		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
 		D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */; };
 		D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */; };
+		D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusBarController.swift; sourceTree = "<group>"; };
 		D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunc.swift; sourceTree = "<group>"; };
+		D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureDefinition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */,
 				D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */,
 				D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */,
+				D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
 				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
@@ -188,6 +191,7 @@
 				3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */,
 				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */,
+				D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */,
 				D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */,
 				D81256BA220A7E4D00AE39DA /* SubmissonBarController.swift in Sources */,
 				D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */,

@@ -18,16 +18,28 @@ class UserStatusBarController: NSCustomTouchBarItem {
         self.statusItems = []
         guard let inputData = DatabaseController.shared.getDataFromFile(filename: "user_info") else {return}
         guard let userInfo = DatabaseController.shared.loadUserInfoJSON(data: inputData) else {return}
-        let regularFont = NSFont.systemFont(ofSize: 15)
-        let boldFont = NSFont.boldSystemFont(ofSize: 21)
         
-        self.statusItems.append(makeTextItem(string: "Accepted:", font: regularFont))
-        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: boldFont))
-        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: regularFont))
-        self.statusItems.append(makeTextItem(string:  String(Int(userInfo.rated_point_sum)), font: boldFont))
+        self.statusItems.append(makeTextItem(string: "Accepted:", font: GlobalVars.regularFont))
+        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: GlobalVars.boldFont))
+        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: GlobalVars.regularFont))
+        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: GlobalVars.boldFont))
+        self.statusItems.append(makeDetailButton())
         
         let item = makeStackView(items: self.statusItems)
         self.view = item
+    }
+    
+    func makeDetailButton() -> NSCustomTouchBarItem {
+        let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier("Detail"))
+        let button = NSButton.init(title: "Detail", target: self, action: #selector(pushedButton(sender:)))
+        item.view = button
+        return item
+    }
+    
+    @IBAction func pushedButton(sender: NSButton) {
+        let urlString = "https://kenkoooo.com/atcoder/?user=" + DatabaseController.shared.userName + "&kind=user"
+        let url = URL(string: urlString)!
+        NSWorkspace.shared.open(url)
     }
     
     required init?(coder: NSCoder) {

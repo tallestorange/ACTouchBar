@@ -39,11 +39,9 @@ class TouchBarController: NSObject {
             if identifier == .controlStripItem  {
                 self.items[identifier]?.view = SubmissonBarController.shared.makeSubmissionButton()
             }
-            
             else if identifier == .statusItem {
                 self.items[identifier] = UserStatusBarController(identifier: .statusItem)
             }
-
         }
     }
     
