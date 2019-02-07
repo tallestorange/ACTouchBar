@@ -1,5 +1,5 @@
 //
-//  SubmissonsBarController.swift
+//  SubmissonDetailsBarController.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/06.
@@ -8,8 +8,8 @@
 
 import Cocoa
 
-class SubmissonBarController: NSObject {
-    static let shared = SubmissonBarController()
+class SubmissonDetailsBarController: NSObject {
+    static let shared = SubmissonDetailsBarController()
 
     var submissionsBar:NSTouchBar!
     var submissionsItems:[NSCustomTouchBarItem]!
@@ -109,7 +109,7 @@ class SubmissonBarController: NSObject {
     }
 }
 
-extension SubmissonBarController: NSTouchBarDelegate {
+extension SubmissonDetailsBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         if identifier == .submissionBarExitItem {
             return self.makeBackButtonItem()

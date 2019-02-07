@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         DatabaseController.shared.setUserName(userName: "tallestorange")
-        SubmissonBarController.shared.prepareItems()
+        SubmissonDetailsBarController.shared.prepareItems()
         TouchBarController.shared.setControlStripItem()
     }
 

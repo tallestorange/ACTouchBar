@@ -16,12 +16,15 @@
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
 		D81256B8220A6E1400AE39DA /* results.json in Resources */ = {isa = PBXBuildFile; fileRef = D81256B7220A6E1400AE39DA /* results.json */; };
-		D81256BA220A7E4D00AE39DA /* SubmissonBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */; };
-		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */; };
+		D81256BA220A7E4D00AE39DA /* SubmissonDetailsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */; };
+		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */; };
 		D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C36220AB4CD00070E85 /* user_info.json */; };
-		D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */; };
-		D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */; };
+		D8CE3C39220AD11700070E85 /* SubmissionStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */; };
+		D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */; };
 		D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */; };
+		D8CE3C41220BF9B700070E85 /* squada-one-v7-latin-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */; };
+		D8CE3C43220C10E000070E85 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D8CE3C42220C10E000070E85 /* icon.jpg */; };
+		D8CE3C45220C11ED00070E85 /* UserProfileBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +41,15 @@
 		3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		D81256B7220A6E1400AE39DA /* results.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results.json; sourceTree = "<group>"; };
-		D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonBarController.swift; sourceTree = "<group>"; };
-		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunc.swift; sourceTree = "<group>"; };
+		D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonDetailsBarController.swift; sourceTree = "<group>"; };
+		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C36220AB4CD00070E85 /* user_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_info.json; sourceTree = "<group>"; };
-		D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatusBarController.swift; sourceTree = "<group>"; };
-		D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunc.swift; sourceTree = "<group>"; };
+		D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarController.swift; sourceTree = "<group>"; };
+		D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureDefinition.swift; sourceTree = "<group>"; };
+		D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "squada-one-v7-latin-regular.ttf"; sourceTree = "<group>"; };
+		D8CE3C42220C10E000070E85 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
+		D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +85,16 @@
 			isa = PBXGroup;
 			children = (
 				3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */,
-				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
-				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
-				D81256B9220A7E4D00AE39DA /* SubmissonBarController.swift */,
-				D8CE3C38220AD11700070E85 /* UserStatusBarController.swift */,
-				D8CE3C3A220BC25C00070E85 /* ViewHelperFunc.swift */,
 				D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */,
-				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunc.swift */,
+				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
+				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
+				D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */,
+				D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */,
+				D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */,
+				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */,
+				D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */,
+				D8CE3C40220BF93500070E85 /* squada-one-v7-latin-regular.ttf */,
+				D8CE3C42220C10E000070E85 /* icon.jpg */,
 				D8CE3C36220AB4CD00070E85 /* user_info.json */,
 				D81256B7220A6E1400AE39DA /* results.json */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
@@ -171,8 +180,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CE3C41220BF9B700070E85 /* squada-one-v7-latin-regular.ttf in Resources */,
 				D8CE3C37220AB4CD00070E85 /* user_info.json in Resources */,
 				3BFB8BD92209FD86005A3CE5 /* Assets.xcassets in Resources */,
+				D8CE3C43220C10E000070E85 /* icon.jpg in Resources */,
 				3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */,
 				D81256B8220A6E1400AE39DA /* results.json in Resources */,
 			);
@@ -190,11 +201,12 @@
 				3BFB8BD72209FD85005A3CE5 /* ACTouchBar.xcdatamodeld in Sources */,
 				3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */,
 				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
-				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunc.swift in Sources */,
+				D8CE3C45220C11ED00070E85 /* UserProfileBarController.swift in Sources */,
+				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */,
 				D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */,
-				D8CE3C3B220BC25C00070E85 /* ViewHelperFunc.swift in Sources */,
-				D81256BA220A7E4D00AE39DA /* SubmissonBarController.swift in Sources */,
-				D8CE3C39220AD11700070E85 /* UserStatusBarController.swift in Sources */,
+				D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */,
+				D81256BA220A7E4D00AE39DA /* SubmissonDetailsBarController.swift in Sources */,
+				D8CE3C39220AD11700070E85 /* SubmissionStatusBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

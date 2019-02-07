@@ -12,11 +12,14 @@ struct GlobalVars {
     static var backColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.95)
     static var submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
     
+    static var rateGreenColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+    
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
     
     static var regularFont = NSFont.systemFont(ofSize: 15)
     static var boldFont = NSFont.boldSystemFont(ofSize: 21)
+    static var rateFont = NSFont.init(name: "SquadaOne-Regular", size: 28)!
 }
 
 struct Submission: Codable {
