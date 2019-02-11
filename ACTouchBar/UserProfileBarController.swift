@@ -10,13 +10,16 @@ class UserProfileBarController: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         
-        let pageParser = PageParser()
-        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
+//        let pageParser = PageParser()
+//        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
+        
+        let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: "tallestorange")
+        print(userProfile)
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
         let userNameItem = makeTextItem(string: "tallestorange" + "   ", font: Constants.boldFont, color: nil)
         let rateInfoItem = makeTextItem(string: "Rating: ", font: Constants.regularFont, color: nil)
-        let rateValueItem = makeTextItem(string: String(userProfile.current_rating!) + " ", font: Constants.boldFont, color: userProfile.current_color)
+        let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: Constants.boldFont, color: userProfile.current_color)
         
         self.view = makeStackView(items: [profileImageItem, userNameItem, rateInfoItem, rateValueItem])
     }

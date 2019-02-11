@@ -37,39 +37,37 @@ struct UserProfile {
     var twitter_id:String? = nil
     var affiliation:String? = nil
     var ranking:String? = nil
-    var current_rating:Int? = nil
-    var highest_rating:Int? = nil
+    var current_rating:Int = 0
+    var highest_rating:Int = 0
     var number_of_times_implemented:Int? = nil
     var current_color:NSColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
     var image:NSImage? = nil
     
     mutating func setColor() {
-        if let rate = self.current_rating {
-            if (1 <= rate && rate < 400) {
+            if (1 <= self.current_rating && self.current_rating < 400) {
                 self.current_color = Constants.grayColor
             }
-            else if (400 <= rate && rate < 800) {
+            else if (400 <= self.current_rating && self.current_rating < 800) {
                 self.current_color = Constants.brownColor
             }
-            else if (800 <= rate && rate < 1200) {
+            else if (800 <= self.current_rating && self.current_rating < 1200) {
                 self.current_color = Constants.greenColor
             }
-            else if (1200 <= rate && rate < 1600) {
+            else if (1200 <= self.current_rating && self.current_rating < 1600) {
                 self.current_color = Constants.cyanColor
             }
-            else if (1600 <= rate && rate < 2000) {
+            else if (1600 <= self.current_rating && self.current_rating < 2000) {
                 self.current_color = Constants.blueColor
             }
-            else if (2000 <= rate && rate < 2400) {
+            else if (2000 <= self.current_rating && self.current_rating < 2400) {
                 self.current_color = Constants.yellowColor
             }
-            else if (2400 <= rate && rate < 2800) {
+            else if (2400 <= self.current_rating && self.current_rating < 2800) {
                 self.current_color = Constants.orangeColor
             }
             else {
                 self.current_color = Constants.redColor
             }
-        }
     }
 }
 
