@@ -18,7 +18,7 @@ struct Constants {
     static var boldFont = NSFont.boldSystemFont(ofSize: 21)
     
     static var recentSubmitsQuantity = 50
-    static var submissionButtonTitle = "Recent " + String(Constants.recentSubmitsQuantity) + " Submissions"
+    static var submissionButtonTitle = "Submissions" //"Recent " + String(Constants.recentSubmitsQuantity) + " Submissions"
     static var backButtonTitle = "Back"
     
     static var grayColor = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
@@ -92,4 +92,10 @@ struct UserInfo: Codable {
     let rated_point_sum:Float
     let user_id:String
     let accepted_count:Int
+}
+
+struct Problem: Codable {
+    let id:String
+    let contest_id:String
+    let title:String
 }

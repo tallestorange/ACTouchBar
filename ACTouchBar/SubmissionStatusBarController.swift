@@ -17,7 +17,7 @@ class SubmissionStatusBarController: NSCustomTouchBarItem {
     func prepareItems() {
         self.statusItems = []
         
-        guard let inputData = getRequest(urlString: Constants.infoURL + DatabaseController.shared.userName) else {return}
+        guard let inputData = getRequest(urlString: Constants.infoURL + "tallestorange") else {return}
         guard let userInfo = DatabaseController.shared.loadUserInfoJSON(data: inputData) else {return}
         
         self.statusItems.append(makeTextItem(string: "Accepted:", font: Constants.regularFont, color: nil))

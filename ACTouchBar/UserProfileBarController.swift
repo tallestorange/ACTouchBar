@@ -11,10 +11,10 @@ class UserProfileBarController: NSCustomTouchBarItem {
         super.init(identifier: identifier)
         
         let pageParser = PageParser()
-        let userProfile = pageParser.getUserProfile(userid: DatabaseController.shared.userName)!
+        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
-        let userNameItem = makeTextItem(string: DatabaseController.shared.userName + "   ", font: Constants.boldFont, color: nil)
+        let userNameItem = makeTextItem(string: "tallestorange" + "   ", font: Constants.boldFont, color: nil)
         let rateInfoItem = makeTextItem(string: "Rating: ", font: Constants.regularFont, color: nil)
         let rateValueItem = makeTextItem(string: String(userProfile.current_rating!) + " ", font: Constants.boldFont, color: userProfile.current_color)
         
