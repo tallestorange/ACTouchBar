@@ -36,7 +36,7 @@ class TouchBarController: NSObject {
             self.items[identifier] = NSCustomTouchBarItem(identifier: identifier)
             
             if identifier == .controlStripItem  {
-                self.items[identifier]?.view = SubmissonDetailsBarController.shared.makeSubmissionButton()
+//                self.items[identifier]?.view = SubmissonDetailsBarController.shared.makeSubmissionButton()
             }
             else if identifier == .statusItem {
                 self.items[identifier] = SubmissionStatusBarController(identifier: .statusItem)
