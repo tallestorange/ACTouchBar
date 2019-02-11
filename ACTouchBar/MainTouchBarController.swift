@@ -45,6 +45,10 @@ class MainTouchBarController: NSObject {
         sender.isEnabled = false
         let downloader = ItemDownloader()
         
+        let pageParser = PageParser()
+        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
+        ACDatabaseController.shared.saveUserProfileData(user_id: "tallestorange", profile: userProfile)
+        
         let url = URL(string: "https://kenkoooo.com/atcoder/resources/problems.json")!
         downloader.getRequest(url: url)
         

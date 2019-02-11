@@ -175,6 +175,100 @@ class ACDatabaseController: NSObject {
         }
     }
     
+    func saveUserProfileData(user_id: String, profile: UserProfile) {
+        let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
+        viewContext.parent = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "UserProfileDB", in: viewContext) else {return}
+        let newRecord = NSManagedObject(entity: entity, insertInto: viewContext)
+        
+        newRecord.setValue(user_id , forKey: "user_id")
+        
+        newRecord.setValue(profile.country , forKey: "country")
+        newRecord.setValue(profile.birth_year , forKey: "birth_year")
+        newRecord.setValue(profile.twitter_id , forKey: "twitter_id")
+        newRecord.setValue(profile.affiliation , forKey: "affiliation")
+        newRecord.setValue(profile.ranking , forKey: "ranking")
+        newRecord.setValue(profile.current_rating , forKey: "current_rating")
+        newRecord.setValue(profile.number_of_times_implemented , forKey: "number_of_times_implemented")
+        
+        let R = profile.current_color.redComponent
+        let G = profile.current_color.greenComponent
+        let B = profile.current_color.blueComponent
+        let imageData = profile.image?.tiffRepresentation
+        
+        newRecord.setValue(R , forKey: "current_color_r")
+        newRecord.setValue(G , forKey: "current_color_g")
+        newRecord.setValue(B , forKey: "current_color_b")
+        newRecord.setValue(imageData , forKey: "image")
+        
+        do {
+            try viewContext.save()
+            print("success")
+        }
+        catch let error {
+            print(error)
+        }
+    }
+    
+    func fetchUserProfileData(user_id: String) -> UserProfile {
+        var profile:UserProfile = UserProfile()
+        
+        let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
+        managedContext.parent = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserProfileDB")
+        let predicate = NSPredicate(format:"%K = %@", "user_id", user_id)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedArray = try managedContext.fetch(fetchRequest)
+            
+            for info in fetchedArray {
+                let country = info.value(forKey: "country") as? String
+                profile.country = country
+                
+                let birth_year = info.value(forKey: "birth_year") as? Int
+                profile.birth_year = birth_year
+                
+                let twitter_id = info.value(forKey: "twitter_id") as? String
+                profile.twitter_id = twitter_id
+                
+                let affiliation = info.value(forKey: "affiliation") as? String
+                profile.affiliation = affiliation
+                
+                let ranking = info.value(forKey: "ranking") as? String
+                profile.ranking = ranking
+                
+                let current_rating = info.value(forKey: "current_rating") as! Int
+                profile.current_rating = current_rating
+                
+                let highest_rating = info.value(forKey: "highest_rating") as! Int
+                profile.highest_rating = highest_rating
+                
+                let number_of_times_implemented = info.value(forKey: "number_of_times_implemented") as? Int
+                profile.number_of_times_implemented = number_of_times_implemented
+                
+                let current_color_r = info.value(forKey: "current_color_r") as? Float
+                let current_color_g = info.value(forKey: "current_color_g") as? Float
+                let current_color_b = info.value(forKey: "current_color_b") as? Float
+                if let R = current_color_r, let G = current_color_g, let B = current_color_b {
+                    let currentColor = NSColor.init(red: CGFloat(R), green: CGFloat(G), blue: CGFloat(B), alpha: 1.0)
+                    profile.current_color = currentColor
+                }
+                
+                let imagedata = info.value(forKey: "image") as? Data
+                if let imageData = imagedata, let image = NSImage(data: imageData) {
+                    profile.image = image
+                }
+                
+            }
+        } catch let error {
+            print(error)
+        }
+        return profile
+    }
+    
 }
 
 
