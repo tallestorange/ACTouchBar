@@ -18,6 +18,7 @@ class ItemDownloader: NSObject {
     }
     
     func getRequest(url: URL) {
+        print(url)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         let downloadTask = session.downloadTask(with: url)
