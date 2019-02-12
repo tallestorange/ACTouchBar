@@ -13,12 +13,12 @@
     <entity name="SubmissionInfoDB" representedClassName="SubmissionInfoDB" syncable="YES" codeGenerationType="class">
         <attribute name="accepted_count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="accepted_count_rank" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="account_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rated_point_sum" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rated_point_sum_rank" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="user_id" optional="YES" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
-                <constraint value="user_id"/>
+                <constraint value="account_id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>

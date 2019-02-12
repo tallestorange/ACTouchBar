@@ -18,6 +18,7 @@ class SubmissionStatusBarController: NSCustomTouchBarItem {
         self.statusItems = []
         
         let userInfo = ACDatabaseController.shared.fetchSubmissionInformationData(user_id: globalVars.shared.userName)
+        print(userInfo)
         
         self.statusItems.append(makeTextItem(string: "Accepted:", font: Constants.regularFont, color: nil))
         self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: Constants.boldFont, color: nil))

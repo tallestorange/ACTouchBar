@@ -276,20 +276,19 @@ class ACDatabaseController: NSObject {
         managedContext.parent = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionInfoDB")
-        let predicate = NSPredicate(format:"%K = %@", "user_id", user_id)
+        let predicate = NSPredicate(format:"%K = %@", "account_id", user_id)
         fetchRequest.predicate = predicate
         
         do {
             let fetchedArray = try managedContext.fetch(fetchRequest)
-            
             for problem in fetchedArray {
                 let accepted_count_rank = problem.value(forKey: "accepted_count_rank") as! Int
                 let rated_point_sum = problem.value(forKey: "rated_point_sum") as! Float
                 let rated_point_sum_rank = problem.value(forKey: "rated_point_sum_rank") as! Int
-                let user_id = problem.value(forKey: "user_id") as! String
+                let user_id = problem.value(forKey: "account_id") as! String
                 let accepted_count = problem.value(forKey: "accepted_count") as! Int
                 
-                return UserInfo.init(accepted_count_rank: accepted_count_rank, rated_point_sum_rank: rated_point_sum_rank, rated_point_sum: rated_point_sum, user_id: user_id, accepted_count: accepted_count)
+            return UserInfo.init(accepted_count_rank: accepted_count_rank, rated_point_sum_rank: rated_point_sum_rank, rated_point_sum: rated_point_sum, user_id: user_id, accepted_count: accepted_count)
             }
         } catch let error {
             print(error)
@@ -306,8 +305,34 @@ class ACDatabaseController: NSObject {
             newRecord.setValue(userInfo.accepted_count_rank , forKey: "accepted_count_rank")
             newRecord.setValue(userInfo.rated_point_sum_rank , forKey: "rated_point_sum_rank")
             newRecord.setValue(userInfo.rated_point_sum , forKey: "rated_point_sum")
-            newRecord.setValue(userInfo.user_id , forKey: "user_id")
+            newRecord.setValue(userInfo.user_id , forKey: "account_id")
             newRecord.setValue(userInfo.accepted_count , forKey: "accepted_count")
+            
+            do {
+                try appDelegate.backgroundContext.save()
+                print("success!")
+            }
+            catch let error {
+                print("error",error)
+
+            }
+        }
+    }
+    
+    func removeSubmissionInformationData() {
+        appDelegate.backgroundContext.performAndWait {
+            
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionInfoDB")
+            
+            do {
+                let fetchedArray = try appDelegate.backgroundContext.fetch(fetchRequest)
+                print(fetchedArray)
+                for i in fetchedArray {
+                    appDelegate.backgroundContext.delete(i)
+                }
+            } catch let error {
+                print(error)
+            }
             
             do {
                 try appDelegate.backgroundContext.save()
@@ -316,6 +341,7 @@ class ACDatabaseController: NSObject {
             catch let error {
                 print(error)
             }
+            
         }
     }
 }

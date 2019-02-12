@@ -65,7 +65,8 @@ extension ItemDownloader: URLSessionDownloadDelegate {
                 ACDatabaseController.shared.saveProblemsInformationData(problems: problemsData)
             }
             else if urlString.contains(Constants.infoURL) {
-                guard let userInfo = ItemDownloader.shared.loadUserInfoJSON(data: data) else {return}
+                guard let userInfo = self.loadUserInfoJSON(data: data) else {return}
+                print("http",userInfo)
                 ACDatabaseController.shared.saveSubmissionInformationData(userInfo: userInfo)
             }
             else if urlString.contains(Constants.resultURL) {
