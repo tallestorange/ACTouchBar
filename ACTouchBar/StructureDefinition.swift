@@ -6,12 +6,19 @@
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
+class globalVars {
+    static let shared = globalVars()
+    
+    var userName = "tallestorange"
+}
+
 struct Constants {
     static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
     
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
+    static var problemURL = "https://kenkoooo.com/atcoder/resources/problems.json"
     
     static var regularFont = NSFont.systemFont(ofSize: 15)
     static var boldFont = NSFont.boldSystemFont(ofSize: 21)

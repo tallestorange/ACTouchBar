@@ -10,11 +10,11 @@ class UserProfileBarController: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         
-        let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: "tallestorange")
+        let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: globalVars.shared.userName)
         print(userProfile)
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
-        let userNameItem = makeTextItem(string: "tallestorange" + "   ", font: Constants.boldFont, color: nil)
+        let userNameItem = makeTextItem(string: globalVars.shared.userName + "   ", font: Constants.boldFont, color: nil)
         let rateInfoItem = makeTextItem(string: "Rating: ", font: Constants.regularFont, color: nil)
         let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: Constants.boldFont, color: userProfile.current_color)
         
