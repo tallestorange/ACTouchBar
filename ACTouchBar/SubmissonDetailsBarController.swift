@@ -32,7 +32,7 @@ class SubmissonDetailsBarController: NSObject {
     }
     
     func makeSubmissionButton() -> NSButton {
-        let button = NSButton(title: Constants.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
+        let button = NSButton(title: globalVars.shared.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
         button.bezelColor = NSColor.systemBlue
         return button
     }
@@ -49,7 +49,7 @@ class SubmissonDetailsBarController: NSObject {
     
     func makeBackButtonItem() -> NSCustomTouchBarItem {
         let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
-        let button = NSButton.init(title: Constants.backButtonTitle, target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
+        let button = NSButton.init(title: globalVars.shared.backButtonTitle, target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
         button.bezelColor = NSColor.systemBlue
         item.view = button

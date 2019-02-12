@@ -9,6 +9,10 @@
 class globalVars {
     static let shared = globalVars()
     var userName = "tourist"
+    var numberOfRecentSubmissions = 100
+    
+    var submissionButtonTitle = "Recent " + String(globalVars.shared.numberOfRecentSubmissions) + " Submissions"
+    var backButtonTitle = "Back"
 }
 
 struct Constants {
@@ -21,10 +25,6 @@ struct Constants {
     
     static var regularFont = NSFont.systemFont(ofSize: 15)
     static var boldFont = NSFont.boldSystemFont(ofSize: 21)
-    
-    static var recentSubmitsQuantity = 50
-    static var submissionButtonTitle = "Submissions" //"Recent " + String(Constants.recentSubmitsQuantity) + " Submissions"
-    static var backButtonTitle = "Back"
     
     static var grayColor = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
     static var brownColor = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)

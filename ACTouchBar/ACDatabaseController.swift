@@ -53,9 +53,7 @@ class ACDatabaseController: NSObject {
         
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescripter]
-        fetchRequest.fetchLimit = 100
-        
-        
+        fetchRequest.fetchLimit = globalVars.shared.numberOfRecentSubmissions
         
         do {
             let fetchedArray = try managedContext.fetch(fetchRequest)
