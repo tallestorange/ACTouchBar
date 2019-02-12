@@ -99,12 +99,7 @@ class ACDatabaseController: NSObject {
         }
     }
     
-    func saveSubmissionsData(submissions: [Submission]) {
-//        let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
-//        viewContext.parent = appDelegate.persistentContainer.viewContext
-//        
-//        viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
+    func saveSubmissionsData(submissions: [Submission]) {        
         appDelegate.backgroundContext.performAndWait {
             for submission in submissions {
                 guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionsDB", in: appDelegate.backgroundContext) else {continue}
@@ -131,32 +126,31 @@ class ACDatabaseController: NSObject {
                 print(error)
             }
         }
-        
-        
     }
     
     func removeSubmissionData() {
-        let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
-        managedContext.parent = appDelegate.persistentContainer.viewContext
+        appDelegate.backgroundContext.performAndWait {
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
         
-        do {
-            let fetchedArray = try managedContext.fetch(fetchRequest)
-            print(fetchedArray)
-            for i in fetchedArray {
-                managedContext.delete(i)
+            do {
+                let fetchedArray = try appDelegate.backgroundContext.fetch(fetchRequest)
+                print(fetchedArray)
+                for i in fetchedArray {
+                    appDelegate.backgroundContext.delete(i)
+                }
+            } catch let error {
+                print(error)
             }
-        } catch let error {
-            print(error)
-        }
+            
+            do {
+                try appDelegate.backgroundContext.save()
+                print("success")
+            }
+            catch let error {
+                print(error)
+            }
         
-        do {
-            try managedContext.save()
-            print("success")
-        }
-        catch let error {
-            print(error)
         }
     }
     

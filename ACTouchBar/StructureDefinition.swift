@@ -9,7 +9,6 @@
 struct Constants {
     static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
-    static var submissionColor = NSColor.init(red: 0/255, green: 0/255, blue: 255/255, alpha: 0.95)
     
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
@@ -40,7 +39,7 @@ struct UserProfile {
     var current_rating:Int = 0
     var highest_rating:Int = 0
     var number_of_times_implemented:Int? = nil
-    var current_color:NSColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
+    var current_color:NSColor = NSColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.00)
     var image:NSImage? = nil
     
     mutating func setColor() {

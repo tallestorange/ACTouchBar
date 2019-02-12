@@ -12,6 +12,11 @@ extension NSTouchBarItem.Identifier {
     static let submissionsItem = NSTouchBarItem.Identifier("kuwa.submissionsItem")
     static let userprofileItem = NSTouchBarItem.Identifier("kuwa.userprofile")
     static let userSubmissionInfoItem = NSCustomTouchBarItem.Identifier("kuwa.usersubmitinfo")
+    static let controlStripItem = NSCustomTouchBarItem.Identifier("kuwa.controlstrip")
+    static let submissionBarExitItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBarExit")
+    static let submissionBarItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBar")
+    static let submissionItem = NSCustomTouchBarItem.Identifier("kuwa.submission")
+    static let statusItem = NSCustomTouchBarItem.Identifier("kuwa.status")
 }
 
 struct TouchBarConstants {
@@ -43,9 +48,7 @@ class MainTouchBarController: NSObject {
     
     @IBAction func pushedRefreshButton(sender: NSButton) {
         sender.isEnabled = false
-        
-        print("!")
-        
+                
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()
