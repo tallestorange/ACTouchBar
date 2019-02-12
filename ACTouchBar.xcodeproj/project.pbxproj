@@ -15,8 +15,6 @@
 		3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */; };
 		3BFB8BD92209FD86005A3CE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */; };
 		3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */; };
-		3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */; };
-		3BFB8BE72209FDFB005A3CE5 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */; };
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
 		3BFB8BEF2209FECE005A3CE5 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */; };
 		3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */; };
@@ -39,8 +37,6 @@
 		3BFB8BDB2209FD86005A3CE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BFB8BDD2209FD86005A3CE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BFB8BDE2209FD86005A3CE5 /* ACTouchBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ACTouchBar.entitlements; sourceTree = "<group>"; };
-		3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
-		3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		3BFB8BE82209FE24005A3CE5 /* ACTouchBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACTouchBar-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
@@ -104,9 +100,7 @@
 				3B321AA32211BF98001188C3 /* ACDatabaseController.swift */,
 				D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */,
 				3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */,
-				3BFB8BE62209FDFB005A3CE5 /* DatabaseController.swift */,
 				3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */,
-				3BFB8BE42209FDC3005A3CE5 /* TouchBarController.swift */,
 				D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */,
 				D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */,
 				D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */,
@@ -265,10 +259,8 @@
 			files = (
 				3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */,
 				3B321AA42211BF98001188C3 /* ACDatabaseController.swift in Sources */,
-				3BFB8BE72209FDFB005A3CE5 /* DatabaseController.swift in Sources */,
 				3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */,
 				3B321AA82211C041001188C3 /* ItemDownloader.swift in Sources */,
-				3BFB8BE52209FDC3005A3CE5 /* TouchBarController.swift in Sources */,
 				D8CE3C45220C11ED00070E85 /* UserProfileBarController.swift in Sources */,
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */,
 				D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */,

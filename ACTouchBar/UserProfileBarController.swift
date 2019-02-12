@@ -10,9 +10,6 @@ class UserProfileBarController: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         
-//        let pageParser = PageParser()
-//        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
-        
         let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: "tallestorange")
         print(userProfile)
         
