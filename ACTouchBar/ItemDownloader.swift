@@ -60,13 +60,17 @@ extension ItemDownloader: URLSessionDownloadDelegate {
             guard let urlString = downloadTask.taskDescription else {return}
             let data = try Data(contentsOf: location)
             
-            if urlString == "https://kenkoooo.com/atcoder/resources/problems.json" {
+            if urlString == Constants.problemURL {
                 guard let problemsData = self.loadProblemsInfoJSON(data: data) else {return}
                 ACDatabaseController.shared.saveProblemsInformationData(problems: problemsData)
             }
-            else {
+            else if urlString.contains(Constants.infoURL) {
+                guard let userInfo = ItemDownloader.shared.loadUserInfoJSON(data: data) else {return}
+                ACDatabaseController.shared.saveSubmissionInformationData(userInfo: userInfo)
+            }
+            else if urlString.contains(Constants.resultURL) {
                 guard let submissionData = self.loadSubmissionJSON(data: data) else {return}
-                ACDatabaseController.shared.saveSubmissionsData(submissions: submissionData)
+                ACDatabaseController.shared.saveSubmissionDetailsData(submissions: submissionData)
                 DispatchQueue.main.async {
                     MainTouchBarController.shared.refreshButton.isEnabled = true
                     SubmissonDetailsBarController.shared.prepareItems()

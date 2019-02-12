@@ -17,8 +17,7 @@ class SubmissionStatusBarController: NSCustomTouchBarItem {
     func prepareItems() {
         self.statusItems = []
         
-        guard let inputData = getRequest(urlString: Constants.infoURL + "tallestorange") else {return}
-        guard let userInfo = ItemDownloader.shared.loadUserInfoJSON(data: inputData) else {return}
+        let userInfo = ACDatabaseController.shared.fetchSubmissionInformationData(user_id: globalVars.shared.userName)
         
         self.statusItems.append(makeTextItem(string: "Accepted:", font: Constants.regularFont, color: nil))
         self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: Constants.boldFont, color: nil))
@@ -38,7 +37,7 @@ class SubmissionStatusBarController: NSCustomTouchBarItem {
     }
     
     @IBAction func pushedButton(sender: NSButton) {
-        let urlString = "https://kenkoooo.com/atcoder/?user=" + "tallestorange" + "&kind=user"
+        let urlString = "https://kenkoooo.com/atcoder/?user=" + globalVars.shared.userName + "&kind=user"
         let url = URL(string: urlString)!
         NSWorkspace.shared.open(url)
     }

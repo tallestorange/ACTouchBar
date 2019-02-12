@@ -39,14 +39,13 @@ class ACDatabaseController: NSObject {
         return problems
     }
     
-    func fetchSubmissionInformationData() -> [Submission] {
+    func fetchSubmissionDetailsData() -> [Submission] {
         var problems:[Submission] = []
         
         let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
         
         managedContext.parent = appDelegate.persistentContainer.viewContext
         managedContext.automaticallyMergesChangesFromParent = true
-//        let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
         let sortDescripter = NSSortDescriptor(key: "submission_id", ascending: false)
@@ -99,7 +98,7 @@ class ACDatabaseController: NSObject {
         }
     }
     
-    func saveSubmissionsData(submissions: [Submission]) {        
+    func saveSubmissionDetailsData(submissions: [Submission]) {        
         appDelegate.backgroundContext.performAndWait {
             for submission in submissions {
                 guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionsDB", in: appDelegate.backgroundContext) else {continue}
@@ -128,7 +127,7 @@ class ACDatabaseController: NSObject {
         }
     }
     
-    func removeSubmissionData() {
+    func removeSubmissionDetailsData() {
         appDelegate.backgroundContext.performAndWait {
         
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
@@ -154,8 +153,7 @@ class ACDatabaseController: NSObject {
         }
     }
     
-    
-    func removeInformationData() {
+    func removeProblemsInformationData() {
         let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
         managedContext.parent = appDelegate.persistentContainer.viewContext
         
@@ -181,38 +179,37 @@ class ACDatabaseController: NSObject {
     }
     
     func saveUserProfileData(user_id: String, profile: UserProfile) {
-        let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
-        viewContext.parent = appDelegate.persistentContainer.viewContext
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "UserProfileDB", in: viewContext) else {return}
-        let newRecord = NSManagedObject(entity: entity, insertInto: viewContext)
-        
-        newRecord.setValue(user_id , forKey: "user_id")
-        
-        newRecord.setValue(profile.country , forKey: "country")
-        newRecord.setValue(profile.birth_year , forKey: "birth_year")
-        newRecord.setValue(profile.twitter_id , forKey: "twitter_id")
-        newRecord.setValue(profile.affiliation , forKey: "affiliation")
-        newRecord.setValue(profile.ranking , forKey: "ranking")
-        newRecord.setValue(profile.current_rating , forKey: "current_rating")
-        newRecord.setValue(profile.number_of_times_implemented , forKey: "number_of_times_implemented")
-        
-        let R = profile.current_color.redComponent
-        let G = profile.current_color.greenComponent
-        let B = profile.current_color.blueComponent
-        let imageData = profile.image?.tiffRepresentation
-        
-        newRecord.setValue(R , forKey: "current_color_r")
-        newRecord.setValue(G , forKey: "current_color_g")
-        newRecord.setValue(B , forKey: "current_color_b")
-        newRecord.setValue(imageData , forKey: "image")
-        
-        do {
-            try viewContext.save()
-            print("success")
-        }
-        catch let error {
-            print(error)
+        appDelegate.backgroundContext.performAndWait {
+            guard let entity = NSEntityDescription.entity(forEntityName: "UserProfileDB", in: appDelegate.backgroundContext) else {return}
+            let newRecord = NSManagedObject(entity: entity, insertInto: appDelegate.backgroundContext)
+            
+            newRecord.setValue(user_id , forKey: "user_id")
+            
+            newRecord.setValue(profile.country , forKey: "country")
+            newRecord.setValue(profile.birth_year , forKey: "birth_year")
+            newRecord.setValue(profile.twitter_id , forKey: "twitter_id")
+            newRecord.setValue(profile.affiliation , forKey: "affiliation")
+            newRecord.setValue(profile.ranking , forKey: "ranking")
+            newRecord.setValue(profile.current_rating , forKey: "current_rating")
+            newRecord.setValue(profile.number_of_times_implemented , forKey: "number_of_times_implemented")
+            
+            let R = profile.current_color.redComponent
+            let G = profile.current_color.greenComponent
+            let B = profile.current_color.blueComponent
+            let imageData = profile.image?.tiffRepresentation
+            
+            newRecord.setValue(R , forKey: "current_color_r")
+            newRecord.setValue(G , forKey: "current_color_g")
+            newRecord.setValue(B , forKey: "current_color_b")
+            newRecord.setValue(imageData , forKey: "image")
+            
+            do {
+                try appDelegate.backgroundContext.save()
+                print("success")
+            }
+            catch let error {
+                print(error)
+            }
         }
     }
     
@@ -274,6 +271,53 @@ class ACDatabaseController: NSObject {
         return profile
     }
     
+    func fetchSubmissionInformationData(user_id: String) -> UserInfo {
+        let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
+        managedContext.parent = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionInfoDB")
+        let predicate = NSPredicate(format:"%K = %@", "user_id", user_id)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedArray = try managedContext.fetch(fetchRequest)
+            
+            for problem in fetchedArray {
+                let accepted_count_rank = problem.value(forKey: "accepted_count_rank") as! Int
+                let rated_point_sum = problem.value(forKey: "rated_point_sum") as! Float
+                let rated_point_sum_rank = problem.value(forKey: "rated_point_sum_rank") as! Int
+                let user_id = problem.value(forKey: "user_id") as! String
+                let accepted_count = problem.value(forKey: "accepted_count") as! Int
+                
+                return UserInfo.init(accepted_count_rank: accepted_count_rank, rated_point_sum_rank: rated_point_sum_rank, rated_point_sum: rated_point_sum, user_id: user_id, accepted_count: accepted_count)
+            }
+        } catch let error {
+            print(error)
+        }
+        
+        return UserInfo.init(accepted_count_rank: 0, rated_point_sum_rank: 0, rated_point_sum: 0, user_id: user_id, accepted_count: 0)
+    }
+    
+    func saveSubmissionInformationData(userInfo: UserInfo) {
+        appDelegate.backgroundContext.performAndWait {
+            guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionInfoDB", in: appDelegate.backgroundContext) else {return}
+            let newRecord = NSManagedObject(entity: entity, insertInto: appDelegate.backgroundContext)
+            
+            newRecord.setValue(userInfo.accepted_count_rank , forKey: "accepted_count_rank")
+            newRecord.setValue(userInfo.rated_point_sum_rank , forKey: "rated_point_sum_rank")
+            newRecord.setValue(userInfo.rated_point_sum , forKey: "rated_point_sum")
+            newRecord.setValue(userInfo.user_id , forKey: "user_id")
+            newRecord.setValue(userInfo.accepted_count , forKey: "accepted_count")
+            
+            do {
+                try appDelegate.backgroundContext.save()
+                print("success")
+            }
+            catch let error {
+                print(error)
+            }
+        }
+    }
 }
 
 

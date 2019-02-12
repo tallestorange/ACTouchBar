@@ -24,11 +24,8 @@ class SubmissonDetailsBarController: NSObject {
         self.submissionsBar = NSTouchBar()
         self.submissionsBar.defaultItemIdentifiers = [.submissionBarExitItem, .submissionBarItem]
         self.submissionsBar.delegate = self
-
-//        guard let inputData = getRequest(urlString: Constants.resultURL + DatabaseController.shared.userName) else {return}
-//        guard let submissions = DatabaseController.shared.loadSubmissionJSON(data: inputData) else {return}
         
-        let submissions = ACDatabaseController.shared.fetchSubmissionInformationData()        
+        let submissions = ACDatabaseController.shared.fetchSubmissionDetailsData()        
         self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
         self.item = NSCustomTouchBarItem(identifier: .submissionBarItem)
         self.item.view = makeScrollView(stackView: makeStackView(items: self.submissionsItems))

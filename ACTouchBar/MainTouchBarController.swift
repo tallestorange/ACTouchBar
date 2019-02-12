@@ -21,7 +21,6 @@ extension NSTouchBarItem.Identifier {
 
 struct TouchBarConstants {
     static let identifiers:[NSCustomTouchBarItem.Identifier] = [.settingsItem, .userprofileItem, .userSubmissionInfoItem, .flexibleSpace, .refreshItem, .submissionsItem]
-    static let userName = "tallestorange"
 }
 
 class MainTouchBarController: NSObject {
@@ -52,14 +51,17 @@ class MainTouchBarController: NSObject {
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()
-        let userProfile = pageParser.getUserProfile(userid: "tallestorange")!
-        ACDatabaseController.shared.saveUserProfileData(user_id: "tallestorange", profile: userProfile)
+        let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName)!
+        ACDatabaseController.shared.saveUserProfileData(user_id: globalVars.shared.userName, profile: userProfile)
         
-        let url = URL(string: "https://kenkoooo.com/atcoder/resources/problems.json")!
+        let url = URL(string: Constants.problemURL)!
         downloader.getRequest(url: url)
         
-        let url2 = URL(string: "https://kenkoooo.com/atcoder/atcoder-api/results?user=tallestorange")!
+        let url2 = URL(string: Constants.infoURL + globalVars.shared.userName)!
         downloader.getRequest(url: url2)
+        
+        let url3 = URL(string: Constants.resultURL + globalVars.shared.userName)!
+        downloader.getRequest(url: url3)
         
     }
     
