@@ -65,8 +65,9 @@ class MainTouchBarController: NSObject {
         
     }
     
-    @IBAction func pushedSubmissionButton(sender: NSButton) {
-        
+    @IBAction func pushedSettingButton(sender: NSButton) {
+        let settingsWindowController = SettingsWindowController()
+        settingsWindowController.showWindow(self)
     }
 }
 
@@ -80,7 +81,7 @@ extension MainTouchBarController: NSTouchBarDelegate {
         }
         else if identifier == .settingsItem {
             let item = NSCustomTouchBarItem.init(identifier: identifier)
-            let button = NSButton.init(image: NSImage.init(named: NSImage.smartBadgeTemplateName)!, target: nil, action: nil)
+            let button = NSButton.init(image: NSImage.init(named: NSImage.smartBadgeTemplateName)!, target: self, action: #selector(pushedSettingButton(sender:)))
             
             item.view = button
             return item

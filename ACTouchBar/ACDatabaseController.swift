@@ -39,7 +39,7 @@ class ACDatabaseController: NSObject {
         return problems
     }
     
-    func fetchSubmissionDetailsData() -> [Submission] {
+    func fetchSubmissionDetailsData(user_id: String) -> [Submission] {
         var problems:[Submission] = []
         
         let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
@@ -49,8 +49,13 @@ class ACDatabaseController: NSObject {
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
         let sortDescripter = NSSortDescriptor(key: "submission_id", ascending: false)
+        let predicate = NSPredicate(format:"%K = %@", "user_id", user_id)
+        
+        fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescripter]
         fetchRequest.fetchLimit = 100
+        
+        
         
         do {
             let fetchedArray = try managedContext.fetch(fetchRequest)

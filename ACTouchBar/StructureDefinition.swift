@@ -8,8 +8,7 @@
 
 class globalVars {
     static let shared = globalVars()
-    
-    var userName = "tallestorange"
+    var userName = "tourist"
 }
 
 struct Constants {
