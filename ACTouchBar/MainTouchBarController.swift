@@ -43,6 +43,9 @@ class MainTouchBarController: NSObject {
     
     @IBAction func pushedRefreshButton(sender: NSButton) {
         sender.isEnabled = false
+        
+        print("!")
+        
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()

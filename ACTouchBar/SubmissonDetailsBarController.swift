@@ -28,7 +28,6 @@ class SubmissonDetailsBarController: NSObject {
 //        guard let inputData = getRequest(urlString: Constants.resultURL + DatabaseController.shared.userName) else {return}
 //        guard let submissions = DatabaseController.shared.loadSubmissionJSON(data: inputData) else {return}
         
-        
         let submissions = ACDatabaseController.shared.fetchSubmissionInformationData()        
         self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
         self.item = NSCustomTouchBarItem(identifier: .submissionBarItem)

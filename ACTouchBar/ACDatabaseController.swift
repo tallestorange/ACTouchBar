@@ -20,6 +20,7 @@ class ACDatabaseController: NSObject {
         
         let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
         managedContext.parent = appDelegate.persistentContainer.viewContext
+        managedContext.automaticallyMergesChangesFromParent = true
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ProblemsDB")
         
@@ -42,10 +43,13 @@ class ACDatabaseController: NSObject {
         var problems:[Submission] = []
         
         let managedContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
+        
         managedContext.parent = appDelegate.persistentContainer.viewContext
+        managedContext.automaticallyMergesChangesFromParent = true
+//        let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "SubmissionsDB")
-        let sortDescripter = NSSortDescriptor(key: "id", ascending: false)
+        let sortDescripter = NSSortDescriptor(key: "submission_id", ascending: false)
         fetchRequest.sortDescriptors = [sortDescripter]
         fetchRequest.fetchLimit = 100
         
@@ -56,7 +60,7 @@ class ACDatabaseController: NSObject {
                 let contest_id = problem.value(forKey: "contest_id") as! String
                 let epoch_second = problem.value(forKey: "epoch_second") as! Int
                 let execution_time = problem.value(forKey: "contest_id") as? Int
-                let id = problem.value(forKey: "id") as! Int
+                let id = problem.value(forKey: "submission_id") as! Int
                 let language = problem.value(forKey: "language") as! String
                 let length = problem.value(forKey: "length") as! Int
                 let point = problem.value(forKey: "point") as! Float
@@ -75,7 +79,7 @@ class ACDatabaseController: NSObject {
     func saveProblemsInformationData(problems: [Problem]) {
         let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
         viewContext.parent = appDelegate.persistentContainer.viewContext
-        viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        viewContext.automaticallyMergesChangesFromParent = true
         
         for problem in problems {
             guard let entity = NSEntityDescription.entity(forEntityName: "ProblemsDB", in: viewContext) else {continue}
@@ -96,32 +100,39 @@ class ACDatabaseController: NSObject {
     }
     
     func saveSubmissionsData(submissions: [Submission]) {
-        let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
-        viewContext.parent = appDelegate.persistentContainer.viewContext
+//        let viewContext: NSManagedObjectContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
+//        viewContext.parent = appDelegate.persistentContainer.viewContext
+//        
+//        viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
-        for submission in submissions {
-            guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionsDB", in: viewContext) else {continue}
-            let newRecord = NSManagedObject(entity: entity, insertInto: viewContext)
-                        
-            newRecord.setValue(submission.execution_time, forKey: "execution_time")
-            newRecord.setValue(submission.point, forKey: "point")
-            newRecord.setValue(submission.result, forKey: "result")
-            newRecord.setValue(submission.problem_id, forKey: "problem_id")
-            newRecord.setValue(submission.user_id, forKey: "user_id")
-            newRecord.setValue(submission.epoch_second, forKey: "epoch_second")
-            newRecord.setValue(submission.contest_id, forKey: "contest_id")
-            newRecord.setValue(submission.id, forKey: "id")
-            newRecord.setValue(submission.language, forKey: "language")
-            newRecord.setValue(submission.length, forKey: "length")
+        appDelegate.backgroundContext.performAndWait {
+            for submission in submissions {
+                guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionsDB", in: appDelegate.backgroundContext) else {continue}
+                let newRecord = NSManagedObject(entity: entity, insertInto: appDelegate.backgroundContext)
+                
+                newRecord.setValue(submission.execution_time, forKey: "execution_time")
+                newRecord.setValue(submission.point, forKey: "point")
+                newRecord.setValue(submission.result, forKey: "result")
+                newRecord.setValue(submission.problem_id, forKey: "problem_id")
+                newRecord.setValue(submission.user_id, forKey: "user_id")
+                newRecord.setValue(submission.epoch_second, forKey: "epoch_second")
+                newRecord.setValue(submission.contest_id, forKey: "contest_id")
+                newRecord.setValue(submission.id, forKey: "submission_id")
+                newRecord.setValue(submission.language, forKey: "language")
+                newRecord.setValue(submission.length, forKey: "length")
+            }
+            
+            do {
+                try appDelegate.backgroundContext.save()
+                
+                print("success")
+            }
+            catch let error {
+                print(error)
+            }
         }
         
-        do {
-            try viewContext.save()
-            print("success")
-        }
-        catch let error {
-            print(error)
-        }
+        
     }
     
     func removeSubmissionData() {
