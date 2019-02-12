@@ -20,6 +20,7 @@
 		3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */; };
 		D81256BA220A7E4D00AE39DA /* SubmissonDetailsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */; };
+		D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */; };
 		D8CE3C39220AD11700070E85 /* SubmissionStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */; };
 		D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */; };
 		D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */; };
@@ -46,6 +47,7 @@
 		CDF9FEB21AB2CCE3D9E35B43 /* Pods-ACTouchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.release.xcconfig"; sourceTree = "<group>"; };
 		D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonDetailsBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunction.swift; sourceTree = "<group>"; };
+		D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarController.swift; sourceTree = "<group>"; };
 		D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureDefinition.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */,
 				3B321AA72211C041001188C3 /* ItemDownloader.swift */,
 				3B321AA32211BF98001188C3 /* ACDatabaseController.swift */,
+				D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */,
 				3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */,
 				3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */,
 				D8CE3C44220C11ED00070E85 /* UserProfileBarController.swift */,
@@ -265,6 +268,7 @@
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */,
 				D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */,
 				3B321AA22211BF60001188C3 /* ACTouchBar.xcdatamodeld in Sources */,
+				D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */,
 				D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */,
 				3B321AA62211BFAF001188C3 /* MainTouchBarController.swift in Sources */,
 				3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */,
