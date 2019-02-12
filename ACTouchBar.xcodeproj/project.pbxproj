@@ -29,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		37A048A74F96E42BA461E998 /* Pods-ACTouchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.release.xcconfig"; path = "Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.release.xcconfig"; sourceTree = "<group>"; };
 		3B321AA12211BF60001188C3 /* DBTest2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBTest2.xcdatamodel; sourceTree = "<group>"; };
 		3B321AA32211BF98001188C3 /* ACDatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDatabaseController.swift; sourceTree = "<group>"; };
 		3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTouchBarController.swift; sourceTree = "<group>"; };
@@ -46,8 +45,9 @@
 		3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBarPrivateApi.h; sourceTree = "<group>"; };
 		3BFB8BEE2209FECE005A3CE5 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageParser.swift; sourceTree = "<group>"; };
-		7C12FD2AF67A0C9E4203D29B /* Pods-ACTouchBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.debug.xcconfig"; path = "Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.debug.xcconfig"; sourceTree = "<group>"; };
+		B3F0FD9090FA311D4478D4F6 /* Pods-ACTouchBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.debug.xcconfig"; sourceTree = "<group>"; };
 		C5BFDB5A7C2090A9D72FB31F /* Pods_ACTouchBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ACTouchBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF9FEB21AB2CCE3D9E35B43 /* Pods-ACTouchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.release.xcconfig"; sourceTree = "<group>"; };
 		D81256B9220A7E4D00AE39DA /* SubmissonDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissonDetailsBarController.swift; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* SubmissionStatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarController.swift; sourceTree = "<group>"; };
@@ -69,13 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E828A2ECC87DC0FF686ED3B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3F0FD9090FA311D4478D4F6 /* Pods-ACTouchBar.debug.xcconfig */,
+				CDF9FEB21AB2CCE3D9E35B43 /* Pods-ACTouchBar.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3BFB8BC52209FD85005A3CE5 = {
 			isa = PBXGroup;
 			children = (
 				3BFB8BD02209FD85005A3CE5 /* ACTouchBar */,
 				3BFB8BCF2209FD85005A3CE5 /* Products */,
 				3BFB8BED2209FECE005A3CE5 /* Frameworks */,
-				E377D603360AAD25212C9547 /* Pods */,
+				0E828A2ECC87DC0FF686ED3B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,15 +132,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E377D603360AAD25212C9547 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7C12FD2AF67A0C9E4203D29B /* Pods-ACTouchBar.debug.xcconfig */,
-				37A048A74F96E42BA461E998 /* Pods-ACTouchBar.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,7 +143,7 @@
 				3BFB8BCA2209FD85005A3CE5 /* Sources */,
 				3BFB8BCB2209FD85005A3CE5 /* Frameworks */,
 				3BFB8BCC2209FD85005A3CE5 /* Resources */,
-				F86FD04E3A16C5616E1D45AA /* [CP] Embed Pods Frameworks */,
+				FB5A8E10355D13507588FF45 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -228,7 +228,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F86FD04E3A16C5616E1D45AA /* [CP] Embed Pods Frameworks */ = {
+		FB5A8E10355D13507588FF45 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -236,7 +236,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -247,7 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -406,11 +406,12 @@
 		};
 		3BFB8BE22209FD86005A3CE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C12FD2AF67A0C9E4203D29B /* Pods-ACTouchBar.debug.xcconfig */;
+			baseConfigurationReference = B3F0FD9090FA311D4478D4F6 /* Pods-ACTouchBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QHW2DL5SSN;
@@ -422,6 +423,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = kuwa.ACTouchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ACTouchBar/ACTouchBar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -434,11 +436,12 @@
 		};
 		3BFB8BE32209FD86005A3CE5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37A048A74F96E42BA461E998 /* Pods-ACTouchBar.release.xcconfig */;
+			baseConfigurationReference = CDF9FEB21AB2CCE3D9E35B43 /* Pods-ACTouchBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ACTouchBar/ACTouchBar.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QHW2DL5SSN;
@@ -450,6 +453,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = kuwa.ACTouchBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ACTouchBar/ACTouchBar-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (

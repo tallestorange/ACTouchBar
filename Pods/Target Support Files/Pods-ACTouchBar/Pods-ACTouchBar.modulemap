@@ -1,0 +1,6 @@
+framework module Pods_ACTouchBar {
+  umbrella header "Pods-ACTouchBar-umbrella.h"
+
+  export *
+  module * { export * }
+}
