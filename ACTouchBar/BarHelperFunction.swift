@@ -46,14 +46,3 @@ func makeTextItem(string: String, font: NSFont, color: NSColor?) -> NSCustomTouc
     
     return item
 }
-
-func getRequest(urlString: String) -> Data? {
-    let url = URL(string: urlString)!
-    
-    do {
-        return try Data(contentsOf: url)
-    }
-    catch {
-        return nil
-    }
-}

@@ -32,6 +32,36 @@ class MainTouchBarController: NSObject {
         presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
     
+    func makeRefreshButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        item.view = self.refreshButton
+        print(item)
+        return item
+    }
+    
+    func makeSettingsButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        let button = NSButton.init(image: NSImage.init(named: NSImage.smartBadgeTemplateName)!, target: self, action: #selector(pushedSettingButton(sender:)))
+        item.view = button
+        return item
+    }
+    
+    func makeSubmissionsButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        let button = NSButton(title: globalVars.shared.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
+        button.bezelColor = NSColor.systemBlue
+        item.view = button
+        return item
+    }
+    
+    func makeMemoButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        let button = NSButton.init(title: globalVars.shared.memoButtonTitle, target: self, action: #selector(pushedMemoButton(sender:)))
+        button.bezelColor = Constants.ACColor
+        item.view = button
+        return item
+    }
+    
     @IBAction func pushedRefreshButton(sender: NSButton) {
         sender.isEnabled = false
                 
@@ -69,43 +99,23 @@ class MainTouchBarController: NSObject {
 
 extension MainTouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
-        if identifier == .refreshItem {
-            let item = NSCustomTouchBarItem.init(identifier: identifier)
-            item.view = self.refreshButton
-            print(item)
-            return item
-        }
-        else if identifier == .settingsItem {
-            let item = NSCustomTouchBarItem.init(identifier: identifier)
-            let button = NSButton.init(image: NSImage.init(named: NSImage.smartBadgeTemplateName)!, target: self, action: #selector(pushedSettingButton(sender:)))
-            
-            item.view = button
-            return item
-        }
-        else if identifier == .submissionsItem {
-            let item = NSCustomTouchBarItem.init(identifier: identifier)
-            
-            let button = NSButton(title: globalVars.shared.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
-            button.bezelColor = NSColor.systemBlue
-            item.view = button
-            
-            return item
-        }
-        else if identifier == .userprofileItem {
+
+        switch identifier {
+        case .settingsItem:
+            return makeSettingsButtonItem(identifier: identifier)
+        case .userprofileItem:
             return UserProfileBarItemController(identifier: identifier)
-        }
-        else if identifier == .userSubmissionInfoItem {
+        case .userSubmissionInfoItem:
             return SubmissionStatusBarItemController(identifier: identifier)
+        case .refreshItem:
+            return makeRefreshButtonItem(identifier: identifier)
+        case .memoItem:
+            return makeMemoButtonItem(identifier: identifier)
+        case .submissionsItem:
+            return makeSubmissionsButtonItem(identifier: identifier)
+        default:
+            return nil
         }
-        else if identifier == .memoItem {
-            let item = NSCustomTouchBarItem.init(identifier: identifier)
-            let button = NSButton.init(title: globalVars.shared.memoButtonTitle, target: self, action: #selector(pushedMemoButton(sender:)))
-            button.bezelColor = Constants.ACColor
-            item.view = button
-            return item
-        }
-        
-        return nil
     }
 }
 
