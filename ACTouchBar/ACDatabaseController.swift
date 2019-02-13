@@ -1,5 +1,5 @@
 //
-//  DatabaseController.swift
+//  ACDatabaseController.swift
 //  ACTouchBar
 //
 //  Created by Yuhel Tanaka on 2019/02/06.
@@ -14,7 +14,6 @@ class ACDatabaseController: NSObject {
     static let shared = ACDatabaseController()
     let appDelegate: AppDelegate = NSApplication.shared.delegate as! AppDelegate
 
-    
     func fetchProblemsInformationData() -> [Problem] {
         var problems:[Problem] = []
         

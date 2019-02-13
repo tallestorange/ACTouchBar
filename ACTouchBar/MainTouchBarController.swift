@@ -11,6 +11,7 @@ class MainTouchBarController: NSObject {
     
     var touchBar:NSTouchBar!
     var refreshButton:NSButton!
+    let submissionDetaisBar = SubmissionDetailsBarController()
     
     override init() {
         super.init()
@@ -19,6 +20,9 @@ class MainTouchBarController: NSObject {
     
     func load() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
+        
+        self.submissionDetaisBar.load()
+        
         if let touchbar = self.touchBar {
             dismissSystemModal(touchBar: touchbar)
         }
@@ -57,6 +61,10 @@ class MainTouchBarController: NSObject {
     @IBAction func pushedMemoButton(sender: NSButton) {
         presentSystemModal(touchBar: MemoBarController(), identifier: .memoItem, placement: 1)
     }
+    
+    @IBAction func pushedSubmissionButton(sender: NSButton) {
+        presentSystemModal(touchBar: submissionDetaisBar, identifier: .memoItem, placement: 1)
+    }
 }
 
 extension MainTouchBarController: NSTouchBarDelegate {
@@ -76,7 +84,11 @@ extension MainTouchBarController: NSTouchBarDelegate {
         }
         else if identifier == .submissionsItem {
             let item = NSCustomTouchBarItem.init(identifier: identifier)
-            item.view = SubmissonDetailsBarController.shared.makeSubmissionButton()
+            
+            let button = NSButton(title: globalVars.shared.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
+            button.bezelColor = NSColor.systemBlue
+            item.view = button
+            
             return item
         }
         else if identifier == .userprofileItem {

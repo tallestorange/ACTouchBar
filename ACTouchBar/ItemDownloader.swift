@@ -1,6 +1,6 @@
 //
 //  ItemDownloader.swift
-//  DBTest2
+//  ACTouchBar
 //
 //  Created by Yuhel Tanaka on 2019/02/10.
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
@@ -74,8 +74,9 @@ extension ItemDownloader: URLSessionDownloadDelegate {
                 ACDatabaseController.shared.saveSubmissionDetailsData(submissions: submissionData)
                 DispatchQueue.main.async {
                     MainTouchBarController.shared.refreshButton.isEnabled = true
-                    SubmissonDetailsBarController.shared.prepareItems()
+//                    SubmissonDetailsBarController.shared.prepareItems()
                     MainTouchBarController.shared.load()
+                    
                 }
             }
             

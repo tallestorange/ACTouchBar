@@ -14,9 +14,9 @@ class UserProfileBarItemController: NSCustomTouchBarItem {
         print(userProfile)
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
-        let userNameItem = makeTextItem(string: globalVars.shared.userName + "   ", font: Constants.boldFont, color: nil)
-        let rateInfoItem = makeTextItem(string: "Rating: ", font: Constants.regularFont, color: nil)
-        let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: Constants.boldFont, color: userProfile.current_color)
+        let userNameItem = makeTextItem(string: globalVars.shared.userName + "   ", font: globalVars.shared.boldFont, color: nil)
+        let rateInfoItem = makeTextItem(string: "Rating: ", font: globalVars.shared.regularFont, color: nil)
+        let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: globalVars.shared.boldFont, color: userProfile.current_color)
         
         self.view = makeStackView(items: [profileImageItem, userNameItem, rateInfoItem, rateValueItem])
     }
