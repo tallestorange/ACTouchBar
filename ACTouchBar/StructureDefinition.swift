@@ -8,11 +8,16 @@
 
 class globalVars {
     static let shared = globalVars()
-    var userName = "tourist"
+    var userName = "tallestorange"
     var numberOfRecentSubmissions = 100
     
-    var submissionButtonTitle = "Recent " + String(globalVars.shared.numberOfRecentSubmissions) + " Submissions"
+    var submissionButtonTitle = "Submissions"
     var backButtonTitle = "Back"
+    var memoButtonTitle = "Memo"
+    
+    var identifiers:[NSCustomTouchBarItem.Identifier] = [.settingsItem, .userprofileItem, .userSubmissionInfoItem, .flexibleSpace, .refreshItem, .memoItem, .submissionsItem]
+    
+    var slogan = "2019/7までに青色！"
 }
 
 struct Constants {
@@ -34,6 +39,21 @@ struct Constants {
     static var yellowColor = NSColor.init(red: 192/255, green: 192/255, blue: 0/255, alpha: 1.00)
     static var orangeColor = NSColor.init(red: 255/255, green: 128/255, blue: 0/255, alpha: 1.00)
     static var redColor = NSColor.init(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.00)
+}
+
+extension NSTouchBarItem.Identifier {
+    static let settingsItem = NSTouchBarItem.Identifier("kuwa.settingsItem")
+    static let refreshItem = NSTouchBarItem.Identifier("kuwa.refreshItem")
+    static let submissionsItem = NSTouchBarItem.Identifier("kuwa.submissionsItem")
+    static let userprofileItem = NSTouchBarItem.Identifier("kuwa.userprofile")
+    static let userSubmissionInfoItem = NSCustomTouchBarItem.Identifier("kuwa.usersubmitinfo")
+    static let controlStripItem = NSCustomTouchBarItem.Identifier("kuwa.controlstrip")
+    static let submissionBarExitItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBarExit")
+    static let submissionBarItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBar")
+    static let submissionItem = NSCustomTouchBarItem.Identifier("kuwa.submission")
+    static let statusItem = NSCustomTouchBarItem.Identifier("kuwa.status")
+    static let memoItem = NSCustomTouchBarItem.Identifier("kuwa.memo")
+    static let memoContent = NSCustomTouchBarItem.Identifier("kuwa.memocontent")
 }
 
 struct UserProfile {

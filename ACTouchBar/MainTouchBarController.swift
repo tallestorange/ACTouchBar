@@ -6,23 +6,6 @@
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-extension NSTouchBarItem.Identifier {
-    static let settingsItem = NSTouchBarItem.Identifier("kuwa.settingsItem")
-    static let refreshItem = NSTouchBarItem.Identifier("kuwa.refreshItem")
-    static let submissionsItem = NSTouchBarItem.Identifier("kuwa.submissionsItem")
-    static let userprofileItem = NSTouchBarItem.Identifier("kuwa.userprofile")
-    static let userSubmissionInfoItem = NSCustomTouchBarItem.Identifier("kuwa.usersubmitinfo")
-    static let controlStripItem = NSCustomTouchBarItem.Identifier("kuwa.controlstrip")
-    static let submissionBarExitItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBarExit")
-    static let submissionBarItem = NSCustomTouchBarItem.Identifier("kuwa.submissionBar")
-    static let submissionItem = NSCustomTouchBarItem.Identifier("kuwa.submission")
-    static let statusItem = NSCustomTouchBarItem.Identifier("kuwa.status")
-}
-
-struct TouchBarConstants {
-    static let identifiers:[NSCustomTouchBarItem.Identifier] = [.settingsItem, .userprofileItem, .userSubmissionInfoItem, .flexibleSpace, .refreshItem, .submissionsItem]
-}
-
 class MainTouchBarController: NSObject {
     static let shared = MainTouchBarController()
     
@@ -40,7 +23,7 @@ class MainTouchBarController: NSObject {
             dismissSystemModal(touchBar: touchbar)
         }
         self.touchBar = NSTouchBar()
-        self.touchBar.defaultItemIdentifiers = TouchBarConstants.identifiers
+        self.touchBar.defaultItemIdentifiers = globalVars.shared.identifiers
         self.touchBar.delegate = self
         presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
@@ -51,8 +34,9 @@ class MainTouchBarController: NSObject {
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()
-        let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName)!
-        ACDatabaseController.shared.saveUserProfileData(user_id: globalVars.shared.userName, profile: userProfile)
+        if let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName) {
+            ACDatabaseController.shared.saveUserProfileData(user_id: globalVars.shared.userName, profile: userProfile)
+        }
         
         let url = URL(string: Constants.problemURL)!
         downloader.getRequest(url: url)
@@ -68,6 +52,10 @@ class MainTouchBarController: NSObject {
     @IBAction func pushedSettingButton(sender: NSButton) {
         let settingsWindowController = SettingsWindowController()
         settingsWindowController.showWindow(self)
+    }
+    
+    @IBAction func pushedMemoButton(sender: NSButton) {
+        presentSystemModal(touchBar: MemoBarController(), identifier: .memoItem, placement: 1)
     }
 }
 
@@ -92,10 +80,17 @@ extension MainTouchBarController: NSTouchBarDelegate {
             return item
         }
         else if identifier == .userprofileItem {
-            return UserProfileBarController(identifier: identifier)
+            return UserProfileBarItemController(identifier: identifier)
         }
         else if identifier == .userSubmissionInfoItem {
-            return SubmissionStatusBarController(identifier: identifier)
+            return SubmissionStatusBarItemController(identifier: identifier)
+        }
+        else if identifier == .memoItem {
+            let item = NSCustomTouchBarItem.init(identifier: identifier)
+            let button = NSButton.init(title: globalVars.shared.memoButtonTitle, target: self, action: #selector(pushedMemoButton(sender:)))
+            button.bezelColor = Constants.ACColor
+            item.view = button
+            return item
         }
         
         return nil

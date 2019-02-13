@@ -1,12 +1,12 @@
 //
-//  UserProfileBarController.swift
+//  UserProfileBarItemController.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/07.
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-class UserProfileBarController: NSCustomTouchBarItem {
+class UserProfileBarItemController: NSCustomTouchBarItem {
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
         

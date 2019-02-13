@@ -1,12 +1,12 @@
 //
-//  SubmissionStatusBarController.swift
+//  SubmissionStatusBarItemController.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/06.
 //  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
 //
 
-class SubmissionStatusBarController: NSCustomTouchBarItem {
+class SubmissionStatusBarItemController: NSCustomTouchBarItem {
     var statusItems:[NSCustomTouchBarItem] = []
     
     override init(identifier: NSTouchBarItem.Identifier) {
