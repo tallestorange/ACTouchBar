@@ -11,7 +11,6 @@ class UserProfileBarItemController: NSCustomTouchBarItem {
         super.init(identifier: identifier)
         
         let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: globalVars.shared.userName)
-        print(userProfile)
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
         let userNameItem = makeTextItem(string: globalVars.shared.userName + "   ", font: globalVars.shared.boldFont, color: nil)

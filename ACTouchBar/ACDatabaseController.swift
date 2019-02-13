@@ -136,7 +136,6 @@ class ACDatabaseController: NSObject {
         
             do {
                 let fetchedArray = try appDelegate.backgroundContext.fetch(fetchRequest)
-                print(fetchedArray)
                 for i in fetchedArray {
                     appDelegate.backgroundContext.delete(i)
                 }
@@ -163,7 +162,6 @@ class ACDatabaseController: NSObject {
         
         do {
             let fetchedArray = try managedContext.fetch(fetchRequest)
-            print(fetchedArray)
             for i in fetchedArray {
                 managedContext.delete(i)
             }
@@ -315,7 +313,7 @@ class ACDatabaseController: NSObject {
                 print("success!")
             }
             catch let error {
-                print("error",error)
+                print(error)
 
             }
         }
@@ -328,7 +326,6 @@ class ACDatabaseController: NSObject {
             
             do {
                 let fetchedArray = try appDelegate.backgroundContext.fetch(fetchRequest)
-                print(fetchedArray)
                 for i in fetchedArray {
                     appDelegate.backgroundContext.delete(i)
                 }
