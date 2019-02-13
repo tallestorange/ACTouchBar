@@ -18,7 +18,6 @@ class ItemDownloader: NSObject {
     }
     
     func getRequest(url: URL) {
-        print(url)
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         let downloadTask = session.downloadTask(with: url)
@@ -66,7 +65,6 @@ extension ItemDownloader: URLSessionDownloadDelegate {
             }
             else if urlString.contains(Constants.infoURL) {
                 guard let userInfo = self.loadUserInfoJSON(data: data) else {return}
-                print("http",userInfo)
                 ACDatabaseController.shared.saveSubmissionInformationData(userInfo: userInfo)
             }
             else if urlString.contains(Constants.resultURL) {
