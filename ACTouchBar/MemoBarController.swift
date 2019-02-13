@@ -35,7 +35,7 @@ extension MemoBarController: NSTouchBarDelegate {
             
             let item = NSCustomTouchBarItem(identifier: identifier)
             let textField = NSTextField.init(labelWithString: globalVars.shared.slogan)
-            textField.font = Constants.boldFont
+            textField.font = globalVars.shared.boldFont
             item.view = textField
             
             return item

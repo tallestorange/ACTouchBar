@@ -7,7 +7,7 @@
 //
 
 class SubmissionStatusBarItemController: NSCustomTouchBarItem {
-    var statusItems:[NSCustomTouchBarItem] = []
+//    var statusItems:[NSCustomTouchBarItem] = []
     
     override init(identifier: NSTouchBarItem.Identifier) {
         super.init(identifier: identifier)
@@ -15,18 +15,17 @@ class SubmissionStatusBarItemController: NSCustomTouchBarItem {
     }
     
     func prepareItems() {
-        self.statusItems = []
-        
         let userInfo = ACDatabaseController.shared.fetchSubmissionInformationData(user_id: globalVars.shared.userName)
-        print(userInfo)
         
-        self.statusItems.append(makeTextItem(string: "Accepted:", font: Constants.regularFont, color: nil))
-        self.statusItems.append(makeTextItem(string: String(userInfo.accepted_count) + " ", font: Constants.boldFont, color: nil))
-        self.statusItems.append(makeTextItem(string: "RatedPointSum:", font: Constants.regularFont, color: nil))
-        self.statusItems.append(makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: Constants.boldFont, color: nil))
-        self.statusItems.append(makeDetailButton())
+        let statusItems = [
+            makeTextItem(string: "Accepted:", font: globalVars.shared.regularFont, color: nil),
+            makeTextItem(string: String(userInfo.accepted_count) + " ", font: globalVars.shared.boldFont, color: nil),
+            makeTextItem(string: "RatedPointSum:", font: globalVars.shared.regularFont, color: nil),
+            makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: globalVars.shared.boldFont, color: nil),
+            makeDetailButton()
+        ]
         
-        let item = makeStackView(items: self.statusItems)
+        let item = makeStackView(items: statusItems)
         self.view = item
     }
     

@@ -18,18 +18,18 @@ class globalVars {
     var identifiers:[NSCustomTouchBarItem.Identifier] = [.settingsItem, .userprofileItem, .userSubmissionInfoItem, .flexibleSpace, .refreshItem, .memoItem, .submissionsItem]
     
     var slogan = "2019/7までに青色！"
+    
+    var regularFont = NSFont.systemFont(ofSize: 15)
+    var boldFont = NSFont.boldSystemFont(ofSize: 21)
 }
 
 struct Constants {
-    static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
-    static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
-    
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
     static var problemURL = "https://kenkoooo.com/atcoder/resources/problems.json"
     
-    static var regularFont = NSFont.systemFont(ofSize: 15)
-    static var boldFont = NSFont.boldSystemFont(ofSize: 21)
+    static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
+    static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
     
     static var grayColor = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
     static var brownColor = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)

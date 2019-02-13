@@ -1,40 +1,31 @@
 //
-//  SubmissonDetailsBarController.swift
+//  SubmissionDetailsBarController.swift
 //  ACTouchBar
 //
-//  Created by yt192 on 2019/02/06.
-//  Copyright © 2019年 Yuhel Tanaka. All rights reserved.
+//  Created by Yuhel Tanaka on 2019/02/14.
+//  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-class SubmissonDetailsBarController: NSObject {
-    static let shared = SubmissonDetailsBarController()
+import Cocoa
 
-    var submissionsBar:NSTouchBar!
+class SubmissionDetailsBarController: NSTouchBar {
+    
     var submissionsItems:[NSCustomTouchBarItem]!
-    var item:NSCustomTouchBarItem!
     var currentDate:String?
     
-    override init(){
+    override init() {
         super.init()
+        self.defaultItemIdentifiers = [.submissionBarExitItem, .submissionBarItem]
+        self.delegate = self
     }
     
-    func prepareItems() {
-        self.submissionsItems = []
-        
-        self.submissionsBar = NSTouchBar()
-        self.submissionsBar.defaultItemIdentifiers = [.submissionBarExitItem, .submissionBarItem]
-        self.submissionsBar.delegate = self
-        
-        let submissions = ACDatabaseController.shared.fetchSubmissionDetailsData(user_id: globalVars.shared.userName)        
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func load() {
+        let submissions = ACDatabaseController.shared.fetchSubmissionDetailsData(user_id: globalVars.shared.userName)
         self.submissionsItems = self.makeSubmissionItems(submissions: submissions)
-        self.item = NSCustomTouchBarItem(identifier: .submissionBarItem)
-        self.item.view = makeScrollView(stackView: makeStackView(items: self.submissionsItems))
-    }
-    
-    func makeSubmissionButton() -> NSButton {
-        let button = NSButton(title: globalVars.shared.submissionButtonTitle, target: self, action: #selector(pushedSubmissionButton(sender:)))
-        button.bezelColor = NSColor.systemBlue
-        return button
     }
     
     func makeSubmissionStateItem(submission: Submission) -> NSCustomTouchBarItem {
@@ -95,26 +86,24 @@ class SubmissonDetailsBarController: NSObject {
     
     @IBAction func pushedSubmissionButtonInView(sender: NSButton) {
         if sender.identifier == NSUserInterfaceItemIdentifier("Back") {
-            minimizeSystemModal(touchBar: self.submissionsBar)
+            minimizeSystemModal(touchBar: self)
         }
         else {
             guard let url = URL(string: sender.identifier!.rawValue) else {return}
             NSWorkspace.shared.open(url)
         }
     }
-    
-    @IBAction func pushedSubmissionButton(sender: NSButton) {
-        presentSystemModal(touchBar: self.submissionsBar, identifier: .submissionItem, placement: 1)
-    }
 }
 
-extension SubmissonDetailsBarController: NSTouchBarDelegate {
+extension SubmissionDetailsBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         if identifier == .submissionBarExitItem {
             return self.makeBackButtonItem()
         }
         else if identifier == .submissionBarItem {
-            return self.item
+            let item = NSCustomTouchBarItem(identifier: .submissionBarItem)
+            item.view = makeScrollView(stackView: makeStackView(items: self.submissionsItems))
+            return item
         }
         return nil
     }
