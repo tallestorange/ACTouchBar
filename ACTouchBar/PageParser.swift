@@ -15,6 +15,17 @@ class PageParser {
         return try HTML(url: url, encoding: String.Encoding.utf8)
     }
     
+    func getRequest(urlString: String) -> Data? {
+        let url = URL(string: urlString)!
+        
+        do {
+            return try Data(contentsOf: url)
+        }
+        catch {
+            return nil
+        }
+    }
+    
     func getUserProfile(userid: String) -> UserProfile? {
         var userProfile = UserProfile()
         

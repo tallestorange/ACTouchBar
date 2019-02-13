@@ -23,7 +23,7 @@
 		D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */; };
 		D868D9382213FA20008334C0 /* MemoBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D868D9372213FA20008334C0 /* MemoBarController.swift */; };
 		D8CE3C39220AD11700070E85 /* SubmissionStatusBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */; };
-		D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */; };
+		D8CE3C3B220BC25C00070E85 /* BarHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* BarHelperFunction.swift */; };
 		D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */; };
 		D8CE3C45220C11ED00070E85 /* UserProfileBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C44220C11ED00070E85 /* UserProfileBarItemController.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,7 @@
 		D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		D868D9372213FA20008334C0 /* MemoBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBarController.swift; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarItemController.swift; sourceTree = "<group>"; };
-		D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHelperFunction.swift; sourceTree = "<group>"; };
+		D8CE3C3A220BC25C00070E85 /* BarHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarHelperFunction.swift; sourceTree = "<group>"; };
 		D8CE3C3E220BF3FA00070E85 /* StructureDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureDefinition.swift; sourceTree = "<group>"; };
 		D8CE3C44220C11ED00070E85 /* UserProfileBarItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileBarItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +111,7 @@
 				D8CE3C44220C11ED00070E85 /* UserProfileBarItemController.swift */,
 				D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */,
 				D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */,
-				D8CE3C3A220BC25C00070E85 /* ViewHelperFunction.swift */,
+				D8CE3C3A220BC25C00070E85 /* BarHelperFunction.swift */,
 				3BFB8BD82209FD86005A3CE5 /* Assets.xcassets */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
 				3B321AA02211BF60001188C3 /* ACTouchBar.xcdatamodeld */,
@@ -273,7 +273,7 @@
 				D8CE3C3F220BF3FA00070E85 /* StructureDefinition.swift in Sources */,
 				3B321AA22211BF60001188C3 /* ACTouchBar.xcdatamodeld in Sources */,
 				D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */,
-				D8CE3C3B220BC25C00070E85 /* ViewHelperFunction.swift in Sources */,
+				D8CE3C3B220BC25C00070E85 /* BarHelperFunction.swift in Sources */,
 				3B321AA62211BFAF001188C3 /* MainTouchBarController.swift in Sources */,
 				3B9893C6221485A800570C0F /* SubmissionDetailsBarController.swift in Sources */,
 				3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */,

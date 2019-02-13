@@ -72,7 +72,6 @@ extension ItemDownloader: URLSessionDownloadDelegate {
                 ACDatabaseController.shared.saveSubmissionDetailsData(submissions: submissionData)
                 DispatchQueue.main.async {
                     MainTouchBarController.shared.refreshButton.isEnabled = true
-//                    SubmissonDetailsBarController.shared.prepareItems()
                     MainTouchBarController.shared.load()
                     
                 }
