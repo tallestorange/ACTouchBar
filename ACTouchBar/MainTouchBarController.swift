@@ -11,7 +11,6 @@ class MainTouchBarController: NSObject {
     
     var touchBar:NSTouchBar!
     var refreshButton:NSButton!
-    let submissionDetaisBar = SubmissionDetailsBarController()
     
     override init() {
         super.init()
@@ -20,9 +19,7 @@ class MainTouchBarController: NSObject {
     
     func load() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
-        
-        self.submissionDetaisBar.load()
-        
+                
         if let touchbar = self.touchBar {
             dismissSystemModal(touchBar: touchbar)
         }
@@ -93,7 +90,7 @@ class MainTouchBarController: NSObject {
     }
     
     @IBAction func pushedSubmissionButton(sender: NSButton) {
-        presentSystemModal(touchBar: submissionDetaisBar, identifier: .memoItem, placement: 1)
+        presentSystemModal(touchBar: SubmissionDetailsBarController(), identifier: .memoItem, placement: 1)
     }
 }
 

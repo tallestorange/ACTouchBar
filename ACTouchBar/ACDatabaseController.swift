@@ -30,7 +30,9 @@ class ACDatabaseController: NSObject {
                 let id = problem.value(forKey: "id") as! String
                 let title = problem.value(forKey: "title") as! String
                 let contest_id = problem.value(forKey: "contest_id") as! String
-                problems.append(Problem.init(id: id, contest_id: title, title: contest_id))
+                problems.append(Problem.init(id: id,
+                                             contest_id: title,
+                                             title: contest_id))
             }
         } catch let error {
             print(error)
@@ -68,7 +70,18 @@ class ACDatabaseController: NSObject {
                 let problem_id = problem.value(forKey: "problem_id") as! String
                 let result = problem.value(forKey: "result") as! String
                 let user_id = problem.value(forKey: "user_id") as! String
-                let sub = Submission.init(execution_time: execution_time, point: point, result: result, problem_id: problem_id, user_id: user_id, epoch_second: epoch_second, contest_id: contest_id, id: id, language: language, length: length)
+                
+                let sub = Submission.init(execution_time: execution_time,
+                                          point: point,
+                                          result: result,
+                                          problem_id: problem_id,
+                                          user_id: user_id,
+                                          epoch_second: epoch_second,
+                                          contest_id: contest_id,
+                                          id: id,
+                                          language: language,
+                                          length: length)
+                
                 problems.append(sub)
             }
         } catch let error {
@@ -100,7 +113,7 @@ class ACDatabaseController: NSObject {
         }
     }
     
-    func saveSubmissionDetailsData(submissions: [Submission]) {        
+    func saveSubmissionDetailsData(submissions: [Submission]) {
         appDelegate.backgroundContext.performAndWait {
             for submission in submissions {
                 guard let entity = NSEntityDescription.entity(forEntityName: "SubmissionsDB", in: appDelegate.backgroundContext) else {continue}
@@ -121,10 +134,10 @@ class ACDatabaseController: NSObject {
             do {
                 try appDelegate.backgroundContext.save()
                 
-                print("success")
+                print("success details")
             }
             catch let error {
-                print(error)
+                print("err", error)
             }
         }
     }
@@ -183,7 +196,7 @@ class ACDatabaseController: NSObject {
             guard let entity = NSEntityDescription.entity(forEntityName: "UserProfileDB", in: appDelegate.backgroundContext) else {return}
             let newRecord = NSManagedObject(entity: entity, insertInto: appDelegate.backgroundContext)
             
-            newRecord.setValue(user_id , forKey: "user_id")
+            newRecord.setValue(user_id , forKey: "username")
             
             newRecord.setValue(profile.country , forKey: "country")
             newRecord.setValue(profile.birth_year , forKey: "birth_year")
@@ -220,7 +233,7 @@ class ACDatabaseController: NSObject {
         managedContext.parent = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "UserProfileDB")
-        let predicate = NSPredicate(format:"%K = %@", "user_id", user_id)
+        let predicate = NSPredicate(format:"%K = %@", "username", user_id)
         fetchRequest.predicate = predicate
         
         do {
@@ -232,6 +245,9 @@ class ACDatabaseController: NSObject {
                 
                 let birth_year = info.value(forKey: "birth_year") as? Int
                 profile.birth_year = birth_year
+                
+                let user_id = info.value(forKey: "username") as! String
+                profile.user_id = user_id
                 
                 let twitter_id = info.value(forKey: "twitter_id") as? String
                 profile.twitter_id = twitter_id
