@@ -17,6 +17,7 @@ class SubmissionDetailsBarController: NSTouchBar {
         super.init()
         self.defaultItemIdentifiers = [.submissionBarExitItem, .submissionBarItem]
         self.delegate = self
+        self.load()
     }
     
     required init?(coder aDecoder: NSCoder) {

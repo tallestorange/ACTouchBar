@@ -67,6 +67,7 @@ struct UserProfile {
     var number_of_times_implemented:Int? = nil
     var current_color:NSColor = NSColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.00)
     var image:NSImage? = nil
+    var user_id:String = ""
     
     mutating func setColor() {
             if (1 <= self.current_rating && self.current_rating < 400) {

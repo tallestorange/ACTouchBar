@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     lazy var backgroundContext: NSManagedObjectContext = {
         let newbackgroundContext = persistentContainer.newBackgroundContext()
         newbackgroundContext.automaticallyMergesChangesFromParent = true
+        newbackgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return newbackgroundContext
     }()
 
