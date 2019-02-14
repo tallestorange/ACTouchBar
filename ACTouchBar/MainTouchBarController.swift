@@ -59,9 +59,8 @@ class MainTouchBarController: NSObject {
         return item
     }
     
-    @IBAction func pushedRefreshButton(sender: NSButton) {
-        sender.isEnabled = false
-                
+    func reloadAll() {
+        self.refreshButton.isEnabled = false
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()
@@ -77,7 +76,10 @@ class MainTouchBarController: NSObject {
         
         let url3 = URL(string: Constants.resultURL + globalVars.shared.userName)!
         downloader.getRequest(url: url3)
-        
+    }
+    
+    @IBAction func pushedRefreshButton(sender: NSButton) {
+        self.reloadAll()
     }
     
     @IBAction func pushedSettingButton(sender: NSButton) {

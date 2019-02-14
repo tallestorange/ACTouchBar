@@ -15,7 +15,12 @@ class globalVars {
     var backButtonTitle = "Back"
     var memoButtonTitle = "Memo"
     
-    var identifiers:[NSCustomTouchBarItem.Identifier] = [.settingsItem, .userprofileItem, .userSubmissionInfoItem, .flexibleSpace, .refreshItem, .memoItem, .submissionsItem]
+    var identifiers:[NSCustomTouchBarItem.Identifier] = [.userprofileItem,
+                                                         .userSubmissionInfoItem,
+                                                         .flexibleSpace,
+                                                         .refreshItem,
+                                                         .memoItem,
+                                                         .submissionsItem]
     
     var slogan = "2019/7までに青色！"
     
