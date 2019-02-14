@@ -13,7 +13,7 @@ class UserProfileBarItemController: NSCustomTouchBarItem {
         let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: globalVars.shared.userName)
         
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
-        let userNameItem = makeTextItem(string: globalVars.shared.userName + "   ", font: globalVars.shared.boldFont, color: nil)
+        let userNameItem = makeTextItem(string: " " + globalVars.shared.userName + "   ", font: globalVars.shared.boldFont, color: nil)
         let rateInfoItem = makeTextItem(string: "Rating: ", font: globalVars.shared.regularFont, color: nil)
         let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: globalVars.shared.boldFont, color: userProfile.current_color)
         
@@ -23,7 +23,7 @@ class UserProfileBarItemController: NSCustomTouchBarItem {
     func makeProfileImageItem(image: NSImage?) -> NSCustomTouchBarItem {
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: "profilePicture"))
         guard let targetImage = image else {return item}
-        targetImage.size = NSSize(width: 44, height: 44)
+        targetImage.size = NSSize(width: 30, height: 30)
         let imageView = NSImageView(image: targetImage)
         imageView.sizeToFit()
         item.view = imageView
