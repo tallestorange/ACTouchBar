@@ -51,6 +51,13 @@ class MainTouchBarController: NSObject {
         return item
     }
     
+    func makeContestButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        let button = NSButton.init(title: "Contest", target: self, action: #selector(pushedContestButton(sender:)))
+        item.view = button
+        return item
+    }
+    
     func reloadAll() {
         self.refreshButton.isEnabled = false
         let downloader = ItemDownloader()
@@ -78,6 +85,10 @@ class MainTouchBarController: NSObject {
         presentSystemModal(touchBar: MemoBarController(), identifier: .memoItem, placement: 1)
     }
     
+    @IBAction func pushedContestButton(sender: NSButton) {
+        presentSystemModal(touchBar: ContestBarController(), identifier: .contestItem, placement: 1)
+    }
+    
     @IBAction func pushedSubmissionButton(sender: NSButton) {
         presentSystemModal(touchBar: SubmissionDetailsBarController(), identifier: .memoItem, placement: 1)
     }
@@ -93,6 +104,8 @@ extension MainTouchBarController: NSTouchBarDelegate {
             return SubmissionStatusBarItemController(identifier: identifier)
         case .refreshItem:
             return makeRefreshButtonItem(identifier: identifier)
+        case .contestItem:
+            return makeContestButtonItem(identifier: identifier)
         case .memoItem:
             return makeMemoButtonItem(identifier: identifier)
         case .submissionsItem:

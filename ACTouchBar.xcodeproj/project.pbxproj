@@ -22,6 +22,7 @@
 		3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BF2220C7D1C005A3CE5 /* PageParser.swift */; };
 		D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */; };
 		D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */; };
+		D856595C2216A12700588F60 /* ContestBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D856595B2216A12700588F60 /* ContestBarController.swift */; };
 		D868D9382213FA20008334C0 /* MemoBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D868D9372213FA20008334C0 /* MemoBarController.swift */; };
 		D8CE3C39220AD11700070E85 /* SubmissionStatusBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */; };
 		D8CE3C3B220BC25C00070E85 /* BarHelperFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE3C3A220BC25C00070E85 /* BarHelperFunction.swift */; };
@@ -51,6 +52,7 @@
 		CDF9FEB21AB2CCE3D9E35B43 /* Pods-ACTouchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACTouchBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ACTouchBar/Pods-ACTouchBar.release.xcconfig"; sourceTree = "<group>"; };
 		D81256BB220A88FF00AE39DA /* PrivateApiHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateApiHelperFunction.swift; sourceTree = "<group>"; };
 		D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		D856595B2216A12700588F60 /* ContestBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestBarController.swift; sourceTree = "<group>"; };
 		D868D9372213FA20008334C0 /* MemoBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBarController.swift; sourceTree = "<group>"; };
 		D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionStatusBarItemController.swift; sourceTree = "<group>"; };
 		D8CE3C3A220BC25C00070E85 /* BarHelperFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarHelperFunction.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				D84DB84B2212BA8600AD2624 /* SettingsWindowController.swift */,
 				3B7E6EFC2215DD8B00D185FE /* SettingsViewController.swift */,
 				D868D9372213FA20008334C0 /* MemoBarController.swift */,
+				D856595B2216A12700588F60 /* ContestBarController.swift */,
 				3B9893C5221485A800570C0F /* SubmissionDetailsBarController.swift */,
 				D8CE3C44220C11ED00070E85 /* UserProfileBarItemController.swift */,
 				D8CE3C38220AD11700070E85 /* SubmissionStatusBarItemController.swift */,
@@ -279,6 +282,7 @@
 				D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */,
 				D8CE3C3B220BC25C00070E85 /* BarHelperFunction.swift in Sources */,
 				3B321AA62211BFAF001188C3 /* MainTouchBarController.swift in Sources */,
+				D856595C2216A12700588F60 /* ContestBarController.swift in Sources */,
 				3B9893C6221485A800570C0F /* SubmissionDetailsBarController.swift in Sources */,
 				3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */,
 				D8CE3C39220AD11700070E85 /* SubmissionStatusBarItemController.swift in Sources */,

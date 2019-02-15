@@ -19,6 +19,7 @@ class globalVars {
                                                          .userSubmissionInfoItem,
                                                          .flexibleSpace,
                                                          .refreshItem,
+                                                         .contestItem,
                                                          .memoItem,
                                                          .submissionsItem]
     
@@ -59,6 +60,7 @@ extension NSTouchBarItem.Identifier {
     static let statusItem = NSCustomTouchBarItem.Identifier("kuwa.status")
     static let memoItem = NSCustomTouchBarItem.Identifier("kuwa.memo")
     static let memoContent = NSCustomTouchBarItem.Identifier("kuwa.memocontent")
+    static let contestItem = NSCustomTouchBarItem.Identifier("kuwa.contest")
 }
 
 struct UserProfile {
