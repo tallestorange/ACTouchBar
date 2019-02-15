@@ -71,8 +71,8 @@ extension ItemDownloader: URLSessionDownloadDelegate {
                 guard let submissionData = self.loadSubmissionJSON(data: data) else {return}
                 ACDatabaseController.shared.saveSubmissionDetailsData(submissions: submissionData)
                 DispatchQueue.main.async {
-                    MainTouchBarController.shared.refreshButton.isEnabled = true
-                    MainTouchBarController.shared.load()
+                    TouchBarController.shared.refreshButton.isEnabled = true
+                    TouchBarController.shared.load()
                     
                 }
             }

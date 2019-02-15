@@ -22,7 +22,7 @@ class SettingsViewController: NSViewController {
     @IBAction func pushOKButton(sender: NSButton) {
         globalVars.shared.userName = textField.stringValue
         globalVars.shared.slogan = memoField.stringValue
-        MainTouchBarController.shared.reloadAll()
+        TouchBarController.shared.reloadAll()
     }
     
 }

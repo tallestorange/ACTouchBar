@@ -1,13 +1,13 @@
 //
-//  MainTouchBarController.swift
+//  TouchBarController.swift
 //  ACTouchBar
 //
 //  Created by Yuhel Tanaka on 2019/02/11.
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-class MainTouchBarController: NSObject {
-    static let shared = MainTouchBarController()
+class TouchBarController: NSObject {
+    static let shared = TouchBarController()
     
     var touchBar:NSTouchBar!
     var refreshButton:NSButton!
@@ -94,7 +94,7 @@ class MainTouchBarController: NSObject {
     }
 }
 
-extension MainTouchBarController: NSTouchBarDelegate {
+extension TouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 
         switch identifier {
