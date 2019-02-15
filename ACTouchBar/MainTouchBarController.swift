@@ -32,14 +32,6 @@ class MainTouchBarController: NSObject {
     func makeRefreshButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
         item.view = self.refreshButton
-        print(item)
-        return item
-    }
-    
-    func makeSettingsButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
-        let item = NSCustomTouchBarItem.init(identifier: identifier)
-        let button = NSButton.init(image: NSImage.init(named: NSImage.smartBadgeTemplateName)!, target: self, action: #selector(pushedSettingButton(sender:)))
-        item.view = button
         return item
     }
     
@@ -82,11 +74,6 @@ class MainTouchBarController: NSObject {
         self.reloadAll()
     }
     
-    @IBAction func pushedSettingButton(sender: NSButton) {
-        let settingsWindowController = SettingsWindowController()
-        settingsWindowController.showWindow(self)
-    }
-    
     @IBAction func pushedMemoButton(sender: NSButton) {
         presentSystemModal(touchBar: MemoBarController(), identifier: .memoItem, placement: 1)
     }
@@ -100,8 +87,6 @@ extension MainTouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 
         switch identifier {
-        case .settingsItem:
-            return makeSettingsButtonItem(identifier: identifier)
         case .userprofileItem:
             return UserProfileBarItemController(identifier: identifier)
         case .userSubmissionInfoItem:
