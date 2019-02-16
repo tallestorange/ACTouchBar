@@ -30,6 +30,7 @@ class globalVars {
 }
 
 struct Constants {
+    static var AtCoderURL = "https://atcoder.jp"
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
     static var problemURL = "https://kenkoooo.com/atcoder/resources/problems.json"

@@ -26,6 +26,25 @@ class PageParser {
         }
     }
     
+    func getCurrentContest() -> [URL] {
+        do {
+            let doc = try self.getHTMLDocument(url: Constants.AtCoderURL)
+            var result:[URL] = []
+            guard let contestNodes = doc?.css("#collapse-contest > div:nth-child(2) > table > tbody > tr") else {return []}
+            for contestNode in contestNodes {
+                if let urlString = contestNode.css("td:nth-child(2) > small > a").first?["href"] {
+                    let url = URL(string: Constants.AtCoderURL + urlString + "/standings")!
+                    result.append(url)
+                }
+            }
+            return result
+            
+        }
+        catch {
+            return []
+        }
+    }
+    
     func getUserProfile(userid: String) -> UserProfile? {
         var userProfile = UserProfile()
         
