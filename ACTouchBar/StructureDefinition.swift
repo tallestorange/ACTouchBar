@@ -14,6 +14,7 @@ class globalVars {
     var submissionButtonTitle = "Submissions"
     var backButtonTitle = "Back"
     var memoButtonTitle = "Memo"
+    var contestButtonTitle = "Contests"
     
     var identifiers:[NSCustomTouchBarItem.Identifier] = [.userprofileItem,
                                                          .userSubmissionInfoItem,

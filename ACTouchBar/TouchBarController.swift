@@ -53,7 +53,7 @@ class TouchBarController: NSObject {
     
     func makeContestButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
-        let button = NSButton.init(title: "Contest", target: self, action: #selector(pushedContestButton(sender:)))
+        let button = NSButton.init(title: globalVars.shared.contestButtonTitle, target: self, action: #selector(pushedContestButton(sender:)))
         item.view = button
         return item
     }

@@ -37,8 +37,21 @@ class PageParser {
             // current contest
             // #collapse-contest > div:nth-child(2) > table > tbody > tr
             
-            guard let contestNodes = doc?.css("#collapse-contest > div:nth-child(8) > table > tbody > tr") else {return []}
-            for contestNode in contestNodes {
+            guard let contestNodes_now = doc?.css("#collapse-contest > div:nth-child(2) > table > tbody > tr") else {return []}
+            for contestNode in contestNodes_now {
+                if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
+                    if let urlString = urlNode["href"] {
+                        if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
+                            let title = urlNode.content?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                            let contestData = CurrentContest(url: url, title: title)
+                            result.append(contestData)
+                        }
+                    }
+                }
+            }
+            
+            guard let contestNodes_past = doc?.css("#collapse-contest > div:nth-child(8) > table > tbody > tr") else {return []}
+            for contestNode in contestNodes_past {
                 if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
                     if let urlString = urlNode["href"] {
                         if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
