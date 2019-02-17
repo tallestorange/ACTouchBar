@@ -51,6 +51,18 @@ class ItemDownloader: NSObject {
         guard let problemsInfo = try? JSONDecoder().decode([Problem].self, from: data) else {return nil}
         return problemsInfo
     }
+    
+    func loadStandingsInfoJSON(data: Data) -> Standings? {
+        do {
+            let standingsInfo = try JSONDecoder().decode(Standings.self, from: data)
+            return standingsInfo
+        }
+        catch let error {
+            print(error)
+            return nil
+        }
+        
+    }
 }
 
 extension ItemDownloader: URLSessionDownloadDelegate {

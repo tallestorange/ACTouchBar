@@ -80,8 +80,8 @@ struct CurrentContest {
 }
 
 struct Standings: Codable {
-    let Fixed:String
-    let AdditionalColumns:Bool
+    let Fixed:Bool
+    let AdditionalColumns:Int?
     let TaskInfo:[taskInfo]
     let StandingsData:[standingsData]
     
@@ -93,7 +93,7 @@ struct Standings: Codable {
     
     struct standingsData: Codable {
         let Rank: Int
-        let Additional: Bool
+        let Additional: Int?
         let UserName: String
         let UserScreenName: String
         let UserIsDeleted: Bool
@@ -103,8 +103,8 @@ struct Standings: Codable {
         let OldRating: Int
         let IsRated: Bool
         let Competitions: Int
-        let TaskResults: [taskResults]
-        let TotalResult: [totalResult]
+        let TaskResults: [String:taskResults]
+        let TotalResult: totalResult
     }
     
     struct taskResults: Codable {
@@ -126,18 +126,6 @@ struct Standings: Codable {
         let Elapsed: Int
         let Frozen: Bool
     }
-    
-    private struct CK : CodingKey {
-        var stringValue: String
-        init?(stringValue: String) {
-            self.stringValue = stringValue
-        }
-        var intValue: Int?
-        init?(intValue: Int) {
-            return nil
-        }
-    }
-    
 }
 
 
