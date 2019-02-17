@@ -78,3 +78,66 @@ struct CurrentContest {
     var url:URL
     var title:String
 }
+
+struct Standings: Codable {
+    let Fixed:String
+    let AdditionalColumns:Bool
+    let TaskInfo:[taskInfo]
+    let StandingsData:[standingsData]
+    
+    struct taskInfo: Codable {
+        let Assignment:String
+        let TaskName:String
+        let TaskScreenName:String
+    }
+    
+    struct standingsData: Codable {
+        let Rank: Int
+        let Additional: Bool
+        let UserName: String
+        let UserScreenName: String
+        let UserIsDeleted: Bool
+        let Affiliation: String
+        let Country: String
+        let Rating: Int
+        let OldRating: Int
+        let IsRated: Bool
+        let Competitions: Int
+        let TaskResults: [taskResults]
+        let TotalResult: [totalResult]
+    }
+    
+    struct taskResults: Codable {
+        let Count: Int
+        let Failure: Int
+        let Penalty: Int
+        let Score: Int
+        let Elapsed: Int
+        let Status: Int
+        let Pending: Bool
+        let Frozen: Bool
+    }
+    
+    struct totalResult: Codable {
+        let Count: Int
+        let Accepted: Int
+        let Penalty: Int
+        let Score: Int
+        let Elapsed: Int
+        let Frozen: Bool
+    }
+    
+    private struct CK : CodingKey {
+        var stringValue: String
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        var intValue: Int?
+        init?(intValue: Int) {
+            return nil
+        }
+    }
+    
+}
+
+

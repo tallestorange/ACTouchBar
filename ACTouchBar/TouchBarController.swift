@@ -61,12 +61,7 @@ class TouchBarController: NSObject {
     func reloadAll() {
         self.refreshButton.isEnabled = false
         let downloader = ItemDownloader()
-        
         let pageParser = PageParser()
-        let contestData = pageParser.getCurrentContest()
-        for contest in contestData {
-            print(contest)
-        }
         
         if let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName) {
             ACDatabaseController.shared.saveUserProfileData(user_id: globalVars.shared.userName, profile: userProfile)
