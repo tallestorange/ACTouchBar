@@ -21,20 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
-        let url = URL(string: "https://atcoder.jp/contests/hokudai-hitachi2018/standings/json")!
-        
-        do {
-            let data = try Data(contentsOf: url)
-            let itemDownloader = ItemDownloader()
-            let standings = itemDownloader.loadStandingsInfoJSON(data: data)
-            print(standings)
-            
-        }
-        catch {
-        }
-        
-//        TouchBarController.shared.load()
+        TouchBarController.shared.load()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

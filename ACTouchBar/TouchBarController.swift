@@ -60,7 +60,6 @@ class TouchBarController: NSObject {
     
     func reloadAll() {
         self.refreshButton.isEnabled = false
-        let downloader = ItemDownloader()
         let pageParser = PageParser()
         
         if let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName) {
@@ -68,13 +67,13 @@ class TouchBarController: NSObject {
         }
         
         let url = URL(string: Constants.problemURL)!
-        downloader.getRequest(url: url)
+        ItemDownloader.shared.getRequest(url: url)
         
         let url2 = URL(string: Constants.infoURL + globalVars.shared.userName)!
-        downloader.getRequest(url: url2)
+        ItemDownloader.shared.getRequest(url: url2)
         
         let url3 = URL(string: Constants.resultURL + globalVars.shared.userName)!
-        downloader.getRequest(url: url3)
+        ItemDownloader.shared.getRequest(url: url3)
     }
     
     @IBAction func pushedRefreshButton(sender: NSButton) {
@@ -86,7 +85,7 @@ class TouchBarController: NSObject {
     }
     
     @IBAction func pushedContestButton(sender: NSButton) {
-        presentSystemModal(touchBar: ContestBarController(), identifier: .contestItem, placement: 1)
+        presentSystemModal(touchBar: ContestListBarController(), identifier: .contestItem, placement: 1)
     }
     
     @IBAction func pushedSubmissionButton(sender: NSButton) {

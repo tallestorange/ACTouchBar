@@ -1,5 +1,5 @@
 //
-//  ContestBarController.swift
+//  ContestListBarController.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/15.
@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class ContestBarController: NSTouchBar {
+class ContestListBarController: NSTouchBar {
     override init() {
         super.init()
-        self.defaultItemIdentifiers = [.contestItem, .contestDetail]
+        self.defaultItemIdentifiers = [.contestItem, .contestList]
         self.delegate = self
     }
     
@@ -22,7 +22,7 @@ class ContestBarController: NSTouchBar {
     func makeContestItem(contest: CurrentContest) -> NSCustomTouchBarItem {
         let identifier = contest.url.absoluteString
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
-        let button = NSButton.init(title: contest.title, target: self, action: nil)
+        let button = NSButton.init(title: contest.title, target: self, action: #selector(pushedContestButton(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier(identifier)
         item.view = button
         return item
@@ -43,9 +43,15 @@ class ContestBarController: NSTouchBar {
     @IBAction func pushedBackButton(sender: NSButton) {
         minimizeSystemModal(touchBar: self)
     }
+    
+    @IBAction func pushedContestButton(sender: NSButton) {
+        guard let urlString = sender.identifier?.rawValue else {return}
+        guard let url = URL(string: urlString) else {return}
+        presentSystemModal(touchBar: ContestDetailBarController(contestURL: url), identifier: .contestDetail, placement: 1)
+    }
 }
 
-extension ContestBarController: NSTouchBarDelegate {
+extension ContestListBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         
         if identifier == .contestItem {
@@ -54,7 +60,7 @@ extension ContestBarController: NSTouchBarDelegate {
             item.view = button
             return item
         }
-        else if identifier == .contestDetail {
+        else if identifier == .contestList {
             let item = NSCustomTouchBarItem(identifier: identifier)
             item.view = makeScrollView(stackView: makeStackView(items: self.makeContestItems()))
             return item

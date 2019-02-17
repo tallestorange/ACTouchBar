@@ -38,6 +38,9 @@ struct Constants {
     static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)
     
+    static var StandingsACColor = NSColor.init(red: 0/255, green: 170/255, blue: 62/255, alpha: 1.00)
+    
+    static var whiteColor = NSColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.00)
     static var grayColor = NSColor.init(red: 128/255, green: 128/255, blue: 128/255, alpha: 1.00)
     static var brownColor = NSColor.init(red: 128/255, green: 64/255, blue: 0/255, alpha: 1.00)
     static var greenColor = NSColor.init(red: 0/255, green: 128/255, blue: 0/255, alpha: 1.00)
@@ -62,6 +65,8 @@ extension NSTouchBarItem.Identifier {
     static let memoItem = NSCustomTouchBarItem.Identifier("kuwa.memo")
     static let memoContent = NSCustomTouchBarItem.Identifier("kuwa.memocontent")
     static let contestItem = NSCustomTouchBarItem.Identifier("kuwa.contest")
+    static let contestList = NSCustomTouchBarItem.Identifier("kuwa.contestList")
     static let contestDetail = NSCustomTouchBarItem.Identifier("kuwa.contestDetail")
+    static let contestDetailList = NSCustomTouchBarItem.Identifier("kuwa.contestDetailList")
 }
 

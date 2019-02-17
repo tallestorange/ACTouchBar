@@ -128,4 +128,9 @@ struct Standings: Codable {
     }
 }
 
-
+struct StandingsInfo {
+    var CollectContestants:Int = 0
+    var TotalContestants:Int = 0
+    var TaskScreenName:String = ""
+    var UserSubmitStatus:Int = 0 // -1->WA 1->AC
+}

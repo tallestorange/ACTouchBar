@@ -30,11 +30,18 @@ class PageParser {
         do {
             let doc = try self.getHTMLDocument(url: Constants.AtCoderURL)
             var result:[CurrentContest] = []
-            guard let contestNodes = doc?.css("#collapse-contest > div:nth-child(2) > table > tbody > tr") else {return []}
+            
+            // past contest
+            // #collapse-contest > div:nth-child(8) > table > tbody > tr
+            
+            // current contest
+            // #collapse-contest > div:nth-child(2) > table > tbody > tr
+            
+            guard let contestNodes = doc?.css("#collapse-contest > div:nth-child(8) > table > tbody > tr") else {return []}
             for contestNode in contestNodes {
                 if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
                     if let urlString = urlNode["href"] {
-                        if let url = URL(string: Constants.AtCoderURL + urlString + "/standings"),
+                        if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
                             let title = urlNode.content?.trimmingCharacters(in: .whitespacesAndNewlines) {                            
                             let contestData = CurrentContest(url: url, title: title)
                             result.append(contestData)
