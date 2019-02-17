@@ -62,5 +62,6 @@ extension NSTouchBarItem.Identifier {
     static let memoItem = NSCustomTouchBarItem.Identifier("kuwa.memo")
     static let memoContent = NSCustomTouchBarItem.Identifier("kuwa.memocontent")
     static let contestItem = NSCustomTouchBarItem.Identifier("kuwa.contest")
+    static let contestDetail = NSCustomTouchBarItem.Identifier("kuwa.contestDetail")
 }
 

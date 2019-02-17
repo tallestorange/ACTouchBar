@@ -63,6 +63,11 @@ class TouchBarController: NSObject {
         let downloader = ItemDownloader()
         
         let pageParser = PageParser()
+        let contestData = pageParser.getCurrentContest()
+        for contest in contestData {
+            print(contest)
+        }
+        
         if let userProfile = pageParser.getUserProfile(userid: globalVars.shared.userName) {
             ACDatabaseController.shared.saveUserProfileData(user_id: globalVars.shared.userName, profile: userProfile)
         }

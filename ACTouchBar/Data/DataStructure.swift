@@ -73,3 +73,8 @@ struct Problem: Codable {
     let contest_id:String
     let title:String
 }
+
+struct CurrentContest {
+    var url:URL
+    var title:String
+}
