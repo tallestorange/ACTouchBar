@@ -1,5 +1,5 @@
 //
-//  StructureDefinition.swift
+//  StructsDefinition.swift
 //  ACTouchBar
 //
 //  Created by yt192 on 2019/02/07.
