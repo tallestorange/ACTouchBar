@@ -16,6 +16,7 @@
 		3B7E6EFF221739F100D185FE /* AtCoderDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6EFE221739F100D185FE /* AtCoderDataStructs.swift */; };
 		3B7E6F092219E55B00D185FE /* ContestDetailBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6F082219E55B00D185FE /* ContestDetailBarController.swift */; };
 		3B9893C6221485A800570C0F /* SubmissionDetailsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9893C5221485A800570C0F /* SubmissionDetailsBarController.swift */; };
+		3BC28F39221ADEEC007BC3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC28F38221ADEEC007BC3FB /* Assets.xcassets */; };
 		3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */; };
 		3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */; };
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
@@ -40,6 +41,7 @@
 		3B7E6EFE221739F100D185FE /* AtCoderDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtCoderDataStructs.swift; sourceTree = "<group>"; };
 		3B7E6F082219E55B00D185FE /* ContestDetailBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestDetailBarController.swift; sourceTree = "<group>"; };
 		3B9893C5221485A800570C0F /* SubmissionDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailsBarController.swift; sourceTree = "<group>"; };
+		3BC28F38221ADEEC007BC3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BFB8BCE2209FD85005A3CE5 /* ACTouchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACTouchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BFB8BDB2209FD86005A3CE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				D85659612216B22A00588F60 /* Data */,
 				D85659632216B2AC00588F60 /* Helper */,
 				3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */,
+				3BC28F38221ADEEC007BC3FB /* Assets.xcassets */,
 				3BFB8BDD2209FD86005A3CE5 /* Info.plist */,
 				3BFB8BDE2209FD86005A3CE5 /* ACTouchBar.entitlements */,
 			);
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC28F39221ADEEC007BC3FB /* Assets.xcassets in Resources */,
 				3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
