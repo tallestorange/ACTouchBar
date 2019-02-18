@@ -8,7 +8,9 @@
 
 class globalVars {
     static let shared = globalVars()
-    var userName = "tallestorange"
+    
+    var userName:String = ""
+    var slogan:String = ""
     
     var numberOfRecentSubmissions = 100
     var autoRefreshInterval = 15.0
@@ -26,10 +28,18 @@ class globalVars {
                                                          .memoItem,
                                                          .submissionsItem]
     
-    var slogan = "2019/7までに青色！"
     
     var regularFont = NSFont.systemFont(ofSize: 15)
     var boldFont = NSFont.boldSystemFont(ofSize: 21)
+    
+    init() {
+        UserDefaults.standard.register(defaults: ["userName":Constants.defaultUserName,
+                                         "slogan":Constants.defaultSlogan])
+        let userName = UserDefaults.standard.object(forKey: "userName") as! String
+        let slogan = UserDefaults.standard.object(forKey: "slogan") as! String
+        self.userName = userName
+        self.slogan = slogan
+    }
 }
 
 struct Constants {
@@ -37,6 +47,9 @@ struct Constants {
     static var resultURL = "https://kenkoooo.com/atcoder/atcoder-api/results?user="
     static var infoURL = "https://kenkoooo.com/atcoder/atcoder-api/v2/user_info?user="
     static var problemURL = "https://kenkoooo.com/atcoder/resources/problems.json"
+    
+    static var defaultUserName = "tallestorange"
+    static var defaultSlogan = "2019/7までに青色！"
     
     static var ACColor = NSColor.init(red: 92/255, green: 184/255, blue: 92/255, alpha: 0.95)
     static var WAColor = NSColor.init(red: 240/255, green: 173/255, blue: 78/255, alpha: 0.95)

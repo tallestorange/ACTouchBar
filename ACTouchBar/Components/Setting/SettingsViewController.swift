@@ -17,11 +17,19 @@ class SettingsViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.textField.stringValue = globalVars.shared.userName
+        self.memoField.stringValue = globalVars.shared.slogan
     }
     
     @IBAction func pushOKButton(sender: NSButton) {
-        globalVars.shared.userName = textField.stringValue
-        globalVars.shared.slogan = memoField.stringValue
+        let username = textField.stringValue
+        let slogan = memoField.stringValue
+        
+        UserDefaults.standard.set(username, forKey: "userName")
+        UserDefaults.standard.set(slogan, forKey: "slogan")
+        
+        globalVars.shared.userName = username
+        globalVars.shared.slogan = slogan
         TouchBarController.shared.reloadAll()
     }
     
