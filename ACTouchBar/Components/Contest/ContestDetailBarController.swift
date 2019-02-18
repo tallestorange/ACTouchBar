@@ -12,6 +12,7 @@ class ContestDetailBarController: NSObject {
     
     var contestURL:URL!
     var touchBar:NSTouchBar!
+    var timer:Timer?
     
     init(contestURL: URL) {
         super.init()
@@ -19,7 +20,7 @@ class ContestDetailBarController: NSObject {
         self.contestURL = contestURL
         self.load()
         
-        Timer.scheduledTimer(withTimeInterval: globalVars.shared.autoRefreshInterval, repeats: true) {_ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: globalVars.shared.autoRefreshInterval, repeats: true) {_ in
             self.load()
         }
     }
@@ -129,6 +130,7 @@ class ContestDetailBarController: NSObject {
     }
     
     @IBAction func pushedBackButton(sender: NSButton) {
+        self.timer?.invalidate()
         minimizeSystemModal(touchBar: self.touchBar)
     }
     
