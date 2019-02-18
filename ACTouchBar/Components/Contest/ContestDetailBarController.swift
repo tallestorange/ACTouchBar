@@ -8,18 +8,35 @@
 
 import Cocoa
 
-class ContestDetailBarController: NSTouchBar {
+class ContestDetailBarController: NSObject {
+    
     var contestURL:URL!
+    var touchBar:NSTouchBar!
     
     init(contestURL: URL) {
         super.init()
-        self.defaultItemIdentifiers = [.contestDetail, .contestDetailList]
-        self.delegate = self
+        
         self.contestURL = contestURL
+        self.load()
+        
+        Timer.scheduledTimer(withTimeInterval: globalVars.shared.autoRefreshInterval, repeats: true) {_ in
+            self.load()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func load() {
+        if let touchbar = self.touchBar {
+            dismissSystemModal(touchBar: touchbar)
+        }
+        self.touchBar = NSTouchBar()
+        
+        self.touchBar.defaultItemIdentifiers = [.contestDetail, .contestDetailList]
+        self.touchBar.delegate = self
+        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
     
     func makeProblemButton(title: String, problemid: String, color: NSColor) -> NSCustomTouchBarItem {
@@ -112,7 +129,7 @@ class ContestDetailBarController: NSTouchBar {
     }
     
     @IBAction func pushedBackButton(sender: NSButton) {
-        minimizeSystemModal(touchBar: self)
+        minimizeSystemModal(touchBar: self.touchBar)
     }
     
     @IBAction func pushedProblemButton(sender: NSButton) {

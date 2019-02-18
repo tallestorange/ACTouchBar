@@ -9,7 +9,9 @@
 class globalVars {
     static let shared = globalVars()
     var userName = "tallestorange"
+    
     var numberOfRecentSubmissions = 100
+    var autoRefreshInterval = 15.0
     
     var submissionButtonTitle = "Submissions"
     var backButtonTitle = "Back"

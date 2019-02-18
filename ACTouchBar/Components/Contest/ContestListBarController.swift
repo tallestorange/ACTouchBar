@@ -47,7 +47,9 @@ class ContestListBarController: NSTouchBar {
     @IBAction func pushedContestButton(sender: NSButton) {
         guard let urlString = sender.identifier?.rawValue else {return}
         guard let url = URL(string: urlString) else {return}
-        presentSystemModal(touchBar: ContestDetailBarController(contestURL: url), identifier: .contestDetail, placement: 1)
+        
+        let nextBar = ContestDetailBarController(contestURL: url)
+        presentSystemModal(touchBar: nextBar.touchBar, identifier: .contestDetail, placement: 1)
     }
 }
 
