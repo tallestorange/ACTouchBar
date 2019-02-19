@@ -21,8 +21,7 @@ class SubmissionStatusBarItemController: NSCustomTouchBarItem {
             makeTextItem(string: "Accepted:", font: globalVars.shared.regularFont, color: nil),
             makeTextItem(string: String(userInfo.accepted_count) + " ", font: globalVars.shared.boldFont, color: nil),
             makeTextItem(string: "RatedPointSum:", font: globalVars.shared.regularFont, color: nil),
-            makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: globalVars.shared.boldFont, color: nil),
-            makeDetailButton()
+            makeTextItem(string: String(Int(userInfo.rated_point_sum)) + "  ", font: globalVars.shared.boldFont, color: nil)
         ]
         
         let item = makeStackView(items: statusItems)

@@ -14,7 +14,6 @@ class TouchBarController: NSObject {
     
     override init() {
         super.init()
-        self.refreshButton = NSButton.init(image: NSImage.init(named: NSImage.refreshTemplateName)!, target: self, action: #selector(pushedRefreshButton(sender:)))
     }
     
     func load() {
@@ -31,6 +30,8 @@ class TouchBarController: NSObject {
     
     func makeRefreshButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
+        self.refreshButton = NSButton.init(image: NSImage.init(named: NSImage.refreshTemplateName)!, target: self, action: #selector(pushedRefreshButton(sender:)))
+        self.refreshButton.bezelColor = NSColor.clear
         item.view = self.refreshButton
         return item
     }
