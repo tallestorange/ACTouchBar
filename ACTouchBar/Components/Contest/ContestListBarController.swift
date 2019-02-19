@@ -59,6 +59,7 @@ extension ContestListBarController: NSTouchBarDelegate {
         if identifier == .contestItem {
             let item = NSCustomTouchBarItem.init(identifier: identifier)
             let button = NSButton.init(title: globalVars.shared.backButtonTitle, target: self, action: #selector(pushedBackButton(sender:)))
+            button.bezelColor = Constants.ACColor
             item.view = button
             return item
         }

@@ -40,8 +40,7 @@ class MainTouchBarController: NSObject {
     
     func makeMemoButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
-        let button = NSButton.init(title: globalVars.shared.memoButtonTitle, target: self, action: #selector(pushedMemoButton(sender:)))
-        button.bezelColor = Constants.ACColor
+        let button = NSButton.init(image: NSImage.init(named: NSImage.touchBarComposeTemplateName)!, target: self, action: #selector(pushedMemoButton(sender:)))
         item.view = button
         return item
     }
@@ -49,6 +48,7 @@ class MainTouchBarController: NSObject {
     func makeContestButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
         let button = NSButton.init(title: globalVars.shared.contestButtonTitle, target: self, action: #selector(pushedContestButton(sender:)))
+        button.bezelColor = Constants.ACColor
         item.view = button
         return item
     }

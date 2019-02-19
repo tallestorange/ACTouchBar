@@ -25,8 +25,8 @@ class globalVars {
                                                          .userSubmissionInfoItem,
                                                          .flexibleSpace,
                                                          .refreshItem,
-                                                         .contestItem,
                                                          .memoItem,
+                                                         .contestItem,
                                                          .submissionsItem]
     
     
