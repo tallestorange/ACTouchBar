@@ -1,36 +1,30 @@
 //
-//  TouchBarController.swift
+//  MainTouchBarController.swift
 //  ACTouchBar
 //
 //  Created by Yuhel Tanaka on 2019/02/11.
 //  Copyright © 2019 Yuhel Tanaka. All rights reserved.
 //
 
-class TouchBarController: NSObject {
-    static let shared = TouchBarController()
+class MainTouchBarController: NSObject {
+    static let shared = MainTouchBarController()
     
     var touchBar:NSTouchBar!
     var refreshButton:NSButton!
     
-    override init() {
-        super.init()
-    }
-    
     func load() {
         DFRSystemModalShowsCloseBoxWhenFrontMost(false)
-                
         if let touchbar = self.touchBar {
             dismissSystemModal(touchBar: touchbar)
         }
         self.touchBar = NSTouchBar()
         self.touchBar.defaultItemIdentifiers = globalVars.shared.identifiers
         self.touchBar.delegate = self
-        presentSystemModal(touchBar: self.touchBar, identifier: .controlStripItem, placement: 1)
     }
     
     func makeRefreshButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
         let item = NSCustomTouchBarItem.init(identifier: identifier)
-        self.refreshButton = NSButton.init(image: NSImage.init(named: NSImage.refreshTemplateName)!, target: self, action: #selector(pushedRefreshButton(sender:)))
+        self.refreshButton = NSButton.init(image: NSImage.init(named: NSImage.touchBarRefreshTemplateName)!, target: self, action: #selector(pushedRefreshButton(sender:)))
         self.refreshButton.bezelColor = NSColor.clear
         item.view = self.refreshButton
         return item
@@ -59,6 +53,13 @@ class TouchBarController: NSObject {
         return item
     }
     
+    func makeBackButtonItem(identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem {
+        let item = NSCustomTouchBarItem.init(identifier: identifier)
+        let button = NSButton.init(image: NSImage.init(named: NSImage.touchBarGoBackTemplateName)!, target: self, action: #selector(pushedBackButton(sender:)))
+        item.view = button
+        return item
+    }
+    
     func reloadAll() {
         self.refreshButton.isEnabled = false
         let pageParser = PageParser()
@@ -81,6 +82,10 @@ class TouchBarController: NSObject {
         self.reloadAll()
     }
     
+    @IBAction func pushedBackButton(sender: NSButton) {
+        dismissSystemModal(touchBar: self.touchBar)
+    }
+    
     @IBAction func pushedMemoButton(sender: NSButton) {
         presentSystemModal(touchBar: MemoBarController(), identifier: .memoItem, placement: 1)
     }
@@ -94,10 +99,12 @@ class TouchBarController: NSObject {
     }
 }
 
-extension TouchBarController: NSTouchBarDelegate {
+extension MainTouchBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 
         switch identifier {
+        case .backItem:
+            return makeBackButtonItem(identifier: identifier)
         case .userprofileItem:
             return UserProfileBarItemController(identifier: identifier)
         case .userSubmissionInfoItem:

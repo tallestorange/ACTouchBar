@@ -10,13 +10,14 @@
 		2B5A84D60BC69D36D69FC73E /* Pods_ACTouchBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5BFDB5A7C2090A9D72FB31F /* Pods_ACTouchBar.framework */; };
 		3B321AA22211BF60001188C3 /* ACTouchBar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B321AA02211BF60001188C3 /* ACTouchBar.xcdatamodeld */; };
 		3B321AA42211BF98001188C3 /* ACDatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B321AA32211BF98001188C3 /* ACDatabaseController.swift */; };
-		3B321AA62211BFAF001188C3 /* TouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B321AA52211BFAF001188C3 /* TouchBarController.swift */; };
+		3B321AA62211BFAF001188C3 /* MainTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */; };
 		3B321AA82211C041001188C3 /* ItemDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B321AA72211C041001188C3 /* ItemDownloader.swift */; };
 		3B7E6EFD2215DD8B00D185FE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6EFC2215DD8B00D185FE /* SettingsViewController.swift */; };
 		3B7E6EFF221739F100D185FE /* AtCoderDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6EFE221739F100D185FE /* AtCoderDataStructs.swift */; };
 		3B7E6F092219E55B00D185FE /* ContestDetailBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E6F082219E55B00D185FE /* ContestDetailBarController.swift */; };
 		3B9893C6221485A800570C0F /* SubmissionDetailsBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9893C5221485A800570C0F /* SubmissionDetailsBarController.swift */; };
 		3BC28F39221ADEEC007BC3FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC28F38221ADEEC007BC3FB /* Assets.xcassets */; };
+		3BC28F59221C4F31007BC3FB /* StartTouchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC28F58221C4F31007BC3FB /* StartTouchBarController.swift */; };
 		3BFB8BD22209FD85005A3CE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */; };
 		3BFB8BDC2209FD86005A3CE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB8BDA2209FD86005A3CE5 /* Main.storyboard */; };
 		3BFB8BEA2209FE25005A3CE5 /* TouchBarPrivateApi.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BFB8BE92209FE25005A3CE5 /* TouchBarPrivateApi.h */; };
@@ -35,13 +36,14 @@
 /* Begin PBXFileReference section */
 		3B321AA12211BF60001188C3 /* DBTest2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBTest2.xcdatamodel; sourceTree = "<group>"; };
 		3B321AA32211BF98001188C3 /* ACDatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ACDatabaseController.swift; sourceTree = "<group>"; };
-		3B321AA52211BFAF001188C3 /* TouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchBarController.swift; sourceTree = "<group>"; };
+		3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTouchBarController.swift; sourceTree = "<group>"; };
 		3B321AA72211C041001188C3 /* ItemDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDownloader.swift; sourceTree = "<group>"; };
 		3B7E6EFC2215DD8B00D185FE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3B7E6EFE221739F100D185FE /* AtCoderDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtCoderDataStructs.swift; sourceTree = "<group>"; };
 		3B7E6F082219E55B00D185FE /* ContestDetailBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContestDetailBarController.swift; sourceTree = "<group>"; };
 		3B9893C5221485A800570C0F /* SubmissionDetailsBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailsBarController.swift; sourceTree = "<group>"; };
 		3BC28F38221ADEEC007BC3FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BC28F58221C4F31007BC3FB /* StartTouchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTouchBarController.swift; sourceTree = "<group>"; };
 		3BFB8BCE2209FD85005A3CE5 /* ACTouchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACTouchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BFB8BDB2209FD86005A3CE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,7 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */,
-				3B321AA52211BFAF001188C3 /* TouchBarController.swift */,
+				3BC28F58221C4F31007BC3FB /* StartTouchBarController.swift */,
+				3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */,
 				D84AF5A6221A39C800001762 /* Structs */,
 				D85659642216B2FE00588F60 /* Components */,
 				D85659612216B22A00588F60 /* Data */,
@@ -357,11 +360,12 @@
 				D8CE3C45220C11ED00070E85 /* UserProfileBarItemController.swift in Sources */,
 				D81256BC220A88FF00AE39DA /* PrivateApiHelperFunction.swift in Sources */,
 				3B7E6EFD2215DD8B00D185FE /* SettingsViewController.swift in Sources */,
+				3BC28F59221C4F31007BC3FB /* StartTouchBarController.swift in Sources */,
 				D8CE3C3F220BF3FA00070E85 /* StructsDefinition.swift in Sources */,
 				3B321AA22211BF60001188C3 /* ACTouchBar.xcdatamodeld in Sources */,
 				D84DB84C2212BA8600AD2624 /* SettingsWindowController.swift in Sources */,
 				D8CE3C3B220BC25C00070E85 /* BarHelperFunction.swift in Sources */,
-				3B321AA62211BFAF001188C3 /* TouchBarController.swift in Sources */,
+				3B321AA62211BFAF001188C3 /* MainTouchBarController.swift in Sources */,
 				D856595C2216A12700588F60 /* ContestListBarController.swift in Sources */,
 				3B9893C6221485A800570C0F /* SubmissionDetailsBarController.swift in Sources */,
 				3BFB8BF3220C7D1C005A3CE5 /* PageParser.swift in Sources */,

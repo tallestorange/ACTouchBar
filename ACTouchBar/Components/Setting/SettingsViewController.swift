@@ -30,7 +30,7 @@ class SettingsViewController: NSViewController {
         
         globalVars.shared.userName = username
         globalVars.shared.slogan = slogan
-        TouchBarController.shared.reloadAll()
+        MainTouchBarController.shared.reloadAll()
     }
     
 }

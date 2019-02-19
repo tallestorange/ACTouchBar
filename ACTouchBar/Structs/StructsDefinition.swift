@@ -20,7 +20,8 @@ class globalVars {
     var memoButtonTitle = "Memo"
     var contestButtonTitle = "Contests"
     
-    var identifiers:[NSCustomTouchBarItem.Identifier] = [.userprofileItem,
+    var identifiers:[NSCustomTouchBarItem.Identifier] = [.backItem,
+                                                         .userprofileItem,
                                                          .userSubmissionInfoItem,
                                                          .flexibleSpace,
                                                          .refreshItem,
@@ -84,5 +85,7 @@ extension NSTouchBarItem.Identifier {
     static let contestList = NSCustomTouchBarItem.Identifier("kuwa.contestList")
     static let contestDetail = NSCustomTouchBarItem.Identifier("kuwa.contestDetail")
     static let contestDetailList = NSCustomTouchBarItem.Identifier("kuwa.contestDetailList")
+    static let startItem = NSTouchBarItem.Identifier("kuwa.startItem")
+    static let backItem = NSTouchBarItem.Identifier("kuwa.backItem")
 }
 
