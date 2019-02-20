@@ -1,5 +1,7 @@
 # ACTouchBar
 
+![screenshot_8](Screenshots/Screenshot_8.png)
+
 ## これはなに？
 
 [AtCoder](https://atcoder.jp/)の精進をするのに役立つ(かもしれない) TouchBarアプリです
@@ -29,7 +31,7 @@ PrivateAPIを使用しているため**どのWindowがActiveであっても表�
 - 『コンテスト一覧』ボタン
 - 『直近の提出状況確認(100件分)』ボタン
 
-となっています。
+となっています
 
 ![screenshot](Screenshots/Screenshot.png)
 
