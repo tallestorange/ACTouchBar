@@ -12,15 +12,24 @@ class UserProfileBarItemController: NSCustomTouchBarItem {
         
         let userProfile = ACDatabaseController.shared.fetchUserProfileData(user_id: globalVars.shared.userName)
         
+        // プロフィール画像
         let profileImageItem = self.makeProfileImageItem(image: userProfile.image)
+        
+        // ユーザ名(ex. chokudai)
         let userNameItem = makeTextItem(string: " " + globalVars.shared.userName + "   ", font: globalVars.shared.boldFont, color: nil)
+        
+        // レート
         let rateInfoItem = makeTextItem(string: "Rating: ", font: globalVars.shared.regularFont, color: nil)
         let rateValueItem = makeTextItem(string: String(userProfile.current_rating) + " ", font: globalVars.shared.boldFont, color: userProfile.current_color)
         
-        self.view = makeStackView(items: [profileImageItem, userNameItem, rateInfoItem, rateValueItem])
+        self.view = makeStackView(items: [profileImageItem,
+                                          userNameItem,
+                                          rateInfoItem,
+                                          rateValueItem])
     }
     
     func makeProfileImageItem(image: NSImage?) -> NSCustomTouchBarItem {
+        // 画像データをTouchBarで表示するサイズ(H,w=30,30)にリサイズしてアイテムとして出力
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(rawValue: "profilePicture"))
         guard let targetImage = image else {return item}
         targetImage.size = NSSize(width: 30, height: 30)

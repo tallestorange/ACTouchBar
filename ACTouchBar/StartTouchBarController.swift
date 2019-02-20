@@ -9,6 +9,7 @@
 import Cocoa
 
 class StartTouchBarController: NSObject {
+    // 初期起動時のControl Stripにアイコンが表示された状態のTouchBar
     static let shared = StartTouchBarController()
     
     func load() {

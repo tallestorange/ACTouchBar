@@ -30,6 +30,7 @@ class SubmissionDetailsBarController: NSTouchBar {
     }
     
     func makeSubmissionStateItem(submission: Submission) -> NSCustomTouchBarItem {
+        // それぞれのSubmissionに遷移するためのボタンアイテムを定義
         let identifier = "https://atcoder.jp/contests/" + submission.contest_id + "/submissions/" + String(submission.id)
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
         let button = NSButton.init(title: submission.problem_id, target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
@@ -40,6 +41,7 @@ class SubmissionDetailsBarController: NSTouchBar {
     }
     
     func makeBackButtonItem() -> NSCustomTouchBarItem {
+        // 戻るボタンのアイテムを定義
         let item = NSCustomTouchBarItem(identifier: .submissionBarExitItem)
         let button = NSButton.init(title: globalVars.shared.backButtonTitle, target: self, action: #selector(pushedSubmissionButtonInView(sender:)))
         button.identifier = NSUserInterfaceItemIdentifier("Back")
@@ -49,6 +51,7 @@ class SubmissionDetailsBarController: NSTouchBar {
     }
     
     func makeDateItem(string: String) -> NSCustomTouchBarItem {
+        // Submit日時を表示するためのアイテムを定義
         let item = NSCustomTouchBarItem(identifier: .statusItem)
         let txtField = NSTextField.init(labelWithString: string)
         item.view = txtField
@@ -56,6 +59,7 @@ class SubmissionDetailsBarController: NSTouchBar {
     }
     
     func makeSubmissionItems(submissions: [Submission]) -> [NSCustomTouchBarItem] {
+        // 直近Submissions(100件)を取得してリスト出力
         var submissionItems:[NSCustomTouchBarItem] = []
         if submissions.isEmpty {
             return []
@@ -99,9 +103,11 @@ class SubmissionDetailsBarController: NSTouchBar {
 extension SubmissionDetailsBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         if identifier == .submissionBarExitItem {
+            // 戻るボタン アイテム
             return self.makeBackButtonItem()
         }
         else if identifier == .submissionBarItem {
+            // Submissions アイテム
             let item = NSCustomTouchBarItem(identifier: .submissionBarItem)
             item.view = makeScrollView(stackView: makeStackView(items: self.submissionsItems))
             return item

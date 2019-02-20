@@ -20,6 +20,7 @@ class ContestListBarController: NSTouchBar {
     }
     
     func makeContestItem(contest: CurrentContest) -> NSCustomTouchBarItem {
+        // それぞれのコンテストに移動するためのボタンアイテムを作成する
         let identifier = contest.url.absoluteString
         let item = NSCustomTouchBarItem(identifier: NSTouchBarItem.Identifier(identifier))
         let button = NSButton.init(title: contest.title, target: self, action: #selector(pushedContestButton(sender:)))
@@ -29,8 +30,8 @@ class ContestListBarController: NSTouchBar {
     }
     
     func makeContestItems() -> [NSCustomTouchBarItem] {
+        // 直近のコンテスト分のボタンアイテムを配列として返す
         var contestItems:[NSCustomTouchBarItem] = []
-        
         let pageParser = PageParser()
         let contests = pageParser.getCurrentContest()
         for contest in contests {
@@ -41,10 +42,12 @@ class ContestListBarController: NSTouchBar {
     }
     
     @IBAction func pushedBackButton(sender: NSButton) {
+        // 現在表示しているTouchBarを最小化する -> 「戻る」操作
         minimizeSystemModal(touchBar: self)
     }
     
     @IBAction func pushedContestButton(sender: NSButton) {
+        // コンテスト問題一覧のページへと飛ぶアクションを定義
         guard let urlString = sender.identifier?.rawValue else {return}
         guard let url = URL(string: urlString) else {return}
         
@@ -57,6 +60,7 @@ extension ContestListBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         
         if identifier == .contestItem {
+            // 戻るボタン
             let item = NSCustomTouchBarItem.init(identifier: identifier)
             let button = NSButton.init(title: globalVars.shared.backButtonTitle, target: self, action: #selector(pushedBackButton(sender:)))
             button.bezelColor = Constants.ACColor
@@ -64,7 +68,10 @@ extension ContestListBarController: NSTouchBarDelegate {
             return item
         }
         else if identifier == .contestList {
+            // コンテスト一覧
             let item = NSCustomTouchBarItem(identifier: identifier)
+            
+            // コンテスト一覧をStackViewに変換後、ScrollViewに変換してスクロール可能なViewを作っている
             item.view = makeScrollView(stackView: makeStackView(items: self.makeContestItems()))
             return item
         }

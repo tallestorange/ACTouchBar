@@ -26,13 +26,14 @@ extension MemoBarController: NSTouchBarDelegate {
     func touchBar(_: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         
         if identifier == .memoItem {
+            // 戻るボタン
             let item = NSCustomTouchBarItem.init(identifier: identifier)
             let button = NSButton.init(title: globalVars.shared.backButtonTitle, target: self, action: #selector(pushedBackButton(sender:)))
             item.view = button
             return item
         }
         else if identifier == .memoContent {
-            
+            // メモの文章部分
             let item = NSCustomTouchBarItem(identifier: identifier)
             let textField = NSTextField.init(labelWithString: globalVars.shared.slogan)
             textField.font = globalVars.shared.boldFont

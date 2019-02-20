@@ -35,7 +35,7 @@ class globalVars {
     
     init() {
         UserDefaults.standard.register(defaults: ["userName":Constants.defaultUserName,
-                                         "slogan":Constants.defaultSlogan])
+                                                  "slogan":Constants.defaultSlogan])
         let userName = UserDefaults.standard.object(forKey: "userName") as! String
         let slogan = UserDefaults.standard.object(forKey: "slogan") as! String
         self.userName = userName

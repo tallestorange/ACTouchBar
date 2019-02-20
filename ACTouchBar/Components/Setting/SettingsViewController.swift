@@ -10,6 +10,7 @@ import Cocoa
 
 class SettingsViewController: NSViewController {
 
+    // 設定画面のViewを担当する
     @IBOutlet var textField:NSTextField!
     @IBOutlet var memoField:NSTextField!
     @IBOutlet var okButton:NSButton!
