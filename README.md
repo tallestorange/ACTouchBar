@@ -8,7 +8,7 @@
 
 おおまかに分けて4つの機能があります
 
-- コンテストでの正解者数/提出者数を確認する
+- コンテストでの正解者数/提出者数を確認する(**自動更新機能付き**)
 - これまでのSubmissionを確認する
 - メモを残す
 - レートやこれまでに解いた問題数を確認する
@@ -41,12 +41,15 @@ PrivateAPIを使用しているため**どのWindowがActiveであっても表�
 
 ![screenshot](Screenshots/Screenshot_4.png)
 
-『コンテスト一覧』画面はこんな感じです。コンテスト中にAC出来た問題についてはAC色に塗られる仕様です。
+『コンテスト一覧』画面はこんな感じです。コンテスト中にAC出来た問題についてはAC色に塗られる仕様です
 
 ![screenshot](Screenshots/Screenshot_5.png)
+
+コンテストでの正解者数/提出者数は15秒に1回自動で更新されます
+
 ![screenshot](Screenshots/Screenshot_6.png)
 
-『直近の提出状況確認(100件分)』画面はこんな感じです。
+『直近の提出状況確認(100件分)』画面はこんな感じです
 
 ![screenshot](Screenshots/Screenshot_7.png)
 

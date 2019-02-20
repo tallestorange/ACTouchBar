@@ -111,7 +111,6 @@
 			children = (
 				3BFB8BD12209FD85005A3CE5 /* AppDelegate.swift */,
 				3BC28F58221C4F31007BC3FB /* StartTouchBarController.swift */,
-				3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */,
 				D84AF5A6221A39C800001762 /* Structs */,
 				D85659642216B2FE00588F60 /* Components */,
 				D85659612216B22A00588F60 /* Data */,
@@ -210,6 +209,7 @@
 		D85659642216B2FE00588F60 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3B321AA52211BFAF001188C3 /* MainTouchBarController.swift */,
 				D856595D2216B19900588F60 /* Setting */,
 				D856595E2216B1BF00588F60 /* Memo */,
 				D856595F2216B1DC00588F60 /* Contest */,
