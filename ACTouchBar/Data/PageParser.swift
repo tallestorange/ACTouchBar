@@ -26,42 +26,35 @@ class PageParser {
         }
     }
     
-    func getCurrentContest() -> [CurrentContest] {
+    func getCurrentContest(css: String, doc: HTMLDocument?) -> [CurrentContest] {
+        var result:[CurrentContest] = []
+        guard let contestNodes_now = doc?.css(css) else {return []}
+        for contestNode in contestNodes_now {
+            if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
+                if let urlString = urlNode["href"] {
+                    if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
+                        let title = urlNode.content?.trimmingCharacters(in: .whitespacesAndNewlines) {
+                        let contestData = CurrentContest(url: url, title: title)
+                        result.append(contestData)
+                    }
+                }
+            }
+        }
+        return result
+    }
+    
+    func getCurrentContests() -> [CurrentContest] {
         do {
             let doc = try self.getHTMLDocument(url: Constants.AtCoderURL)
             var result:[CurrentContest] = []
             
-            // past contest
-            // #collapse-contest > div:nth-child(8) > table > tbody > tr
+            result += self.getCurrentContest(css: "#collapse-contest > div:nth-child(2) > table > tbody > tr",
+                                             doc: doc) // current contests
+            result += self.getCurrentContest(css: "#collapse-contest > div:nth-child(8) > table > tbody > tr",
+                                             doc: doc) // future contests
+            result += self.getCurrentContest(css: "#collapse-contest > div:nth-child(11) > table > tbody > tr",
+                                             doc: doc) // past contests
             
-            // current contest
-            // #collapse-contest > div:nth-child(2) > table > tbody > tr
-            
-            guard let contestNodes_now = doc?.css("#collapse-contest > div:nth-child(2) > table > tbody > tr") else {return []}
-            for contestNode in contestNodes_now {
-                if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
-                    if let urlString = urlNode["href"] {
-                        if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
-                            let title = urlNode.content?.trimmingCharacters(in: .whitespacesAndNewlines) {
-                            let contestData = CurrentContest(url: url, title: title)
-                            result.append(contestData)
-                        }
-                    }
-                }
-            }
-            
-            guard let contestNodes_past = doc?.css("#collapse-contest > div:nth-child(8) > table > tbody > tr") else {return []}
-            for contestNode in contestNodes_past {
-                if let urlNode = contestNode.css("td:nth-child(2) > small > a").first {
-                    if let urlString = urlNode["href"] {
-                        if let url = URL(string: Constants.AtCoderURL + urlString + "/standings/json"),
-                            let title = urlNode.content?.trimmingCharacters(in: .whitespacesAndNewlines) {                            
-                            let contestData = CurrentContest(url: url, title: title)
-                            result.append(contestData)
-                        }
-                    }
-                }
-            }
             return result
             
         }

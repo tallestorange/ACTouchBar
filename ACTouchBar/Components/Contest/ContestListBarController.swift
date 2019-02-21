@@ -33,7 +33,7 @@ class ContestListBarController: NSTouchBar {
         // 直近のコンテスト分のボタンアイテムを配列として返す
         var contestItems:[NSCustomTouchBarItem] = []
         let pageParser = PageParser()
-        let contests = pageParser.getCurrentContest()
+        let contests = pageParser.getCurrentContests()
         for contest in contests {
             contestItems.append(self.makeContestItem(contest: contest))
         }
